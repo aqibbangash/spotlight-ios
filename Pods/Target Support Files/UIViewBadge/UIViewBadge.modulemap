@@ -1,0 +1,6 @@
+framework module UIViewBadge {
+  umbrella header "UIViewBadge-umbrella.h"
+
+  export *
+  module * { export * }
+}

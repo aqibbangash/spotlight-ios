@@ -1,0 +1,6 @@
+framework module iShowcase {
+  umbrella header "iShowcase-umbrella.h"
+
+  export *
+  module * { export * }
+}

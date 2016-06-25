@@ -1,0 +1,6 @@
+framework module VideoBackgroundViewController {
+  umbrella header "VideoBackgroundViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}
