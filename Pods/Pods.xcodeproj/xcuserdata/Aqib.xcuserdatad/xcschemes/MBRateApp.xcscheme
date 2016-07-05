@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A69E86D322819E7E6629D8F3'
+               BlueprintIdentifier = '8028EFFA0797DAA316E49E30'
                BlueprintName = 'MBRateApp'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MBRateApp.framework'>

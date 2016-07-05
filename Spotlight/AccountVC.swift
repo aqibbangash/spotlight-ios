@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import GoogleMobileAds
 import Parse
 import Quickblox
+import Firebase
 import Alamofire
 import GTToast
 
@@ -285,7 +285,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         return randomString
     }
-
+    
     
     
     
@@ -317,7 +317,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         return body
     }
-
+    
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print ("Image: Not Selected")
@@ -329,9 +329,9 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-//        bannerView.rootViewController = self
-//        bannerView.loadRequest(GADRequest())
+        //        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        //        bannerView.rootViewController = self
+        //        bannerView.loadRequest(GADRequest())
         
         
         dialogPasswordInner.layer.shadowOffset = CGSizeMake(0, 0)
@@ -341,7 +341,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         dialogPasswordInner.layer.borderColor = UIColor(netHex:0x08142a).CGColor
         
         
-//        self.currentPaswordField.
+        //        self.currentPaswordField.
         
         if let login: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("azureId") {
             
@@ -387,7 +387,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     @IBOutlet weak var errorMessage: UILabel!
     @IBAction func updatePasswordConfirm(sender: UIButton) {
-    
+        
         //sender.enabled = false
         
         dismissKeyboard()
@@ -398,7 +398,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             {
                 if (pass1.text!.characters.count > 7)
                 {
-                     self.changePassword(self.pass1.text!, oldPass: self.currentPaswordField.text!)
+                    self.changePassword(self.pass1.text!, oldPass: self.currentPaswordField.text!)
                 }else
                 {
                     
@@ -406,7 +406,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                     self.errorMessage.textColor = UIColor.redColor()
                     GTToast.create("Minimum 8 characters password.")
                 }
-               
+                
             }
             else
             {
@@ -432,12 +432,12 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func changePassword(s: String, oldPass:String)
     {
         
-//        var oldPass = ""
-//        if let login: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("pass") {
-//            
-//            oldPass  = login as! String
-//            
-//        }
+        //        var oldPass = ""
+        //        if let login: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("pass") {
+        //            
+        //            oldPass  = login as! String
+        //            
+        //        }
         
         var tempId = ""
         
@@ -462,22 +462,22 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             userDefaults.setObject(user?.password, forKey: "pass")
             
             userDefaults.synchronize()
-           
+            
             self.errorMessage.text = "Password updated!"
             self.errorMessage.textColor = UIColor.greenColor()
             
             
             self.updateAzurePassword(tempId, s: s)
             
-            }) { (respinseError) in
-                
-                
-                
-                self.updateBtn.enabled = true
-                self.errorMessage.text = "Error Updating Password. try again"
-                self.errorMessage.textColor = UIColor.redColor()
-                print ("*Error Updating: \(respinseError.error)")
-                
+        }) { (respinseError) in
+            
+            
+            
+            self.updateBtn.enabled = true
+            self.errorMessage.text = "Error Updating Password. try again"
+            self.errorMessage.textColor = UIColor.redColor()
+            print ("*Error Updating: \(respinseError.error)")
+            
         }
     }
     
@@ -492,9 +492,9 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var urla = "https://exchangeappreview.azurewebsites.net/Spotlight"
     
     func updateAzurePassword(u:String, s:String){
-    
+        
         var params = ["userId":u,"newPassword":s]
-    
+        
         Alamofire.request(.POST, "\(self.urla)/updatePassword.php", parameters: params).responseJSON { (Response) in
             
             self.pass2.text = ""
@@ -510,16 +510,16 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         //self.deleteDialog.hidden = true
         
-                QBRequest.deleteCurrentUserWithSuccessBlock({ (resposnse) in
+        QBRequest.deleteCurrentUserWithSuccessBlock({ (resposnse) in
+            
+            self.deleteAccount()
+            
+        }) { (response) in
+            
+            
+            
+        }
         
-                    self.deleteAccount()
-        
-                    }) { (response) in
-        
-        
-                        
-                }
-
         
         //self.deleteAccount()
         
@@ -532,7 +532,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
     
     @IBAction func changeImage(sender: UIButton) {
-    
+        
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
         
@@ -564,7 +564,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 
             }
         }
-
+        
         
     }
     @IBOutlet weak var deleteDialog: UIView!
@@ -580,7 +580,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var updateBtn: UIButton!
     
     @IBAction func menuButtonPressed(sender: UIButton) {
-    
+        
         if (const.constant == -100)
         {
             openDrawer()
@@ -589,7 +589,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         {
             closeDrawer()
         }
-    
+        
     }
     
     @IBOutlet weak var optionsBtnView: UIView!
@@ -623,7 +623,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         //let jeremyGif = UIImage.gifWithName("VIP-logo")
         
         //vipIV.image = UIImage.gifWithName("VIP-logo")
-
+        
         
         
         if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("vip") {
@@ -643,7 +643,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             else{
                 
                 print ("This happened.")
-             //   self.makeEntryForVip()
+                //   self.makeEntryForVip()
             }
             
         }
@@ -707,39 +707,39 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         
         
-//        if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("azureId") {
-//            
-//            self.recept = user as! String
+        //        if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("azureId") {
+        //            
+        //            self.recept = user as! String
         
-            
         
-//        if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("azureId") {
-//            
-//            self.recept = user as! String
-//            
-//            if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("user-\(self.recept)") {
-//                
-//                print ("object saved for this user as: \(user as! String)")
-//                var a = (user as! String).componentsSeparatedByString(",")
-//                self.picUrl = a[7]
-//                
-//                self.username.text = "\(a[1])n\(a[2])"
-//                
-//                print ("pic : \(self.picUrl)")
-//                
-//                self.img.imageURL(NSURL(string: self.picUrl)!)
-//                
-////                profilePicture.loadImageFromURLString(self.picUrl, placeholderImage: UIImage(named: "btn-profile")) {
-////                    (finished, error) in
-////                    
-////                    
-////                }
-//                
-//                
-//                
-//            }
         
-//        }
+        //        if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("azureId") {
+        //            
+        //            self.recept = user as! String
+        //            
+        //            if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("user-\(self.recept)") {
+        //                
+        //                print ("object saved for this user as: \(user as! String)")
+        //                var a = (user as! String).componentsSeparatedByString(",")
+        //                self.picUrl = a[7]
+        //                
+        //                self.username.text = "\(a[1])n\(a[2])"
+        //                
+        //                print ("pic : \(self.picUrl)")
+        //                
+        //                self.img.imageURL(NSURL(string: self.picUrl)!)
+        //                
+        ////                profilePicture.loadImageFromURLString(self.picUrl, placeholderImage: UIImage(named: "btn-profile")) {
+        ////                    (finished, error) in
+        ////                    
+        ////                    
+        ////                }
+        //                
+        //                
+        //                
+        //            }
+        
+        //        }
         
     }
     
@@ -747,7 +747,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     {
         var apiCall = "https://exchangeappreview.azurewebsites.net/Spotlight/vip_user.php"
         var id  = ""
-
+        
         if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("id") {
             id  = "\(user as! Int)"
         }
@@ -787,9 +787,9 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             
             self.performSegueWithIdentifier("toLogout", sender: self)
             
-            }) { (error) in
-                print ("**ERROR UNREG: \(error!.error!.localizedDescription) ")
-                self.performSegueWithIdentifier("toLogout", sender: self)
+        }) { (error) in
+            print ("**ERROR UNREG: \(error!.error!.localizedDescription) ")
+            self.performSegueWithIdentifier("toLogout", sender: self)
         }
         
         
@@ -814,13 +814,13 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }

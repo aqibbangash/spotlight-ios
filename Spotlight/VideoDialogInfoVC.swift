@@ -10,7 +10,9 @@ import UIKit
 import Quickblox
 import Alamofire
 import GTToast
-import GoogleMobileAds
+import FirebaseAnalytics
+import Firebase
+//import GoogleMobileAds
 
 class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITextFieldDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var acc:Bool = false
@@ -136,7 +138,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
     
     func getAllBlocks(id:String)
     {
-       
+        
         //print ("IN HEREE")
         newloadingView.hidden = true
         
@@ -216,7 +218,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         Alamofire.request(.POST, apiCall).responseJSON {
             response in
             
-             self.reportDialogButton.enabled = true
+            self.reportDialogButton.enabled = true
             
             self.alert.dismissWithClickedButtonIndex(0, animated: true)
             var json  = response.result.value as? NSDictionary
@@ -224,10 +226,10 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             
             if (status == 1)
             {
-//                self.alert = UIAlertView()
-//                self.alert.title = "Report"
-//                self.alert.message = "Report has been submitted"
-//                self.alert.addButtonWithTitle("Ok")
+                //                self.alert = UIAlertView()
+                //                self.alert.title = "Report"
+                //                self.alert.message = "Report has been submitted"
+                //                self.alert.addButtonWithTitle("Ok")
                 //self.alert.show()
                 
                 GTToast.create("Report has been submitted")
@@ -236,14 +238,14 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             }
             else
             {
-//                self.alert = UIAlertView()
-//                self.alert.title = "Report"
-//                self.alert.message = "You have already reported this user."
-//                
-//                
-//                self.alert.addButtonWithTitle("Ok")
-//                
-//                
+                //                self.alert = UIAlertView()
+                //                self.alert.title = "Report"
+                //                self.alert.message = "You have already reported this user."
+                //                
+                //                
+                //                self.alert.addButtonWithTitle("Ok")
+                //                
+                //                
                 //self.alert.show()
                 
                 GTToast.create("You have already reported this user.")
@@ -251,7 +253,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             
         }
     }
-
+    
     
     @IBAction func answerCall(sender: UIButton) {
         
@@ -353,7 +355,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         
         
         self.continueState = false
-         self.connected = false
+        self.connected = false
         
         
         self.blockForOneHour("\(self.currentConnectedUser)", myId: "\(self.userId)")
@@ -384,7 +386,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
                     //self.dismissViewControllerAnimated(true, completion: nil)
                 }
             }
-
+            
         }
         else
         {
@@ -645,7 +647,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         
         //session.acceptCall(nil)
     }
-
+    
     
     
     func didReceiveNewSession(session: QBRTCSession!, userInfo: [NSObject : AnyObject]!) {
@@ -694,11 +696,11 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
                 //print ("***desc \(block.1!.percentOfCompletion*100)")
                 //self.loadingMessage.text = "Uploading: \(Int(block.1!.percentOfCompletion*100))/100%"
                 
-            }) { (resp) -> Void in
-                
-                //print ("***error: \(resp)")
-                
-                
+        }) { (resp) -> Void in
+            
+            //print ("***error: \(resp)")
+            
+            
         }
         
         //        QBRequest.TUploadFile(imageData!, fileName: "\(userId)-\(NSDate(timeIntervalSinceNow: 0))", contentType: "image/jpg", isPublic: false, successBlock: { (res:QBResponse, blob:QBCBlob) -> Void in
@@ -1076,10 +1078,10 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             }
             
             
-            }) { (errorResponse) -> Void in
-                
-                //print ("Error while Receiving the messages:\(errorResponse.debugDescription)")
-                
+        }) { (errorResponse) -> Void in
+            
+            //print ("Error while Receiving the messages:\(errorResponse.debugDescription)")
+            
         }
         
     }
@@ -1221,111 +1223,111 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         
         if (!connected && continueState)
         {
-        //print ("***GET BABY*** HAPPENED")
-        
-        let params = [  "user_id": "\(self.userId)" ,
-                        "gender": self.gender,
-                        "prefs": self.prefs]
-        
-        //print ("My Params: \(params)");
-        Alamofire.request(.POST, "\(self.url)/spotlight_video.php", parameters: params).responseJSON {
-            response in
+            //print ("***GET BABY*** HAPPENED")
             
-            //print("GET BABY RESPONSE RAW: \(response)")
+            let params = [  "user_id": "\(self.userId)" ,
+                            "gender": self.gender,
+                            "prefs": self.prefs]
             
-            let json  = response.result.value as? NSDictionary
-            
-            //print ("JSON: \(json)")
-            
-            if (json != nil)
-            {
-                if (json?.valueForKey("boolean") as! Bool == true)
+            //print ("My Params: \(params)");
+            Alamofire.request(.POST, "\(self.url)/spotlight_video.php", parameters: params).responseJSON {
+                response in
+                
+                //print("GET BABY RESPONSE RAW: \(response)")
+                
+                let json  = response.result.value as? NSDictionary
+                
+                //print ("JSON: \(json)")
+                
+                if (json != nil)
                 {
-                    //print ("GET BABY RETURNED TRUE")
-                    
-                    
-                    if  (json?.valueForKey("id") as? String != nil)
+                    if (json?.valueForKey("boolean") as! Bool == true)
                     {
-                        self.currentConnectedUser = json?.valueForKey("id") as! String
+                        //print ("GET BABY RETURNED TRUE")
                         
-                        if ((json?.valueForKey("full_name") as? String != nil))
+                        
+                        if  (json?.valueForKey("id") as? String != nil)
                         {
-                            self.thisUserName =  json?.valueForKey("full_name") as! String
-                        }
-                        
-                        if ((json?.valueForKey("vip") as? Bool != nil))
-                        {
-                            self.thisUserPro =  json?.valueForKey("vip") as! Bool
-                        }
-                        
-                        
-                        
-                        
-                        if ( json?.valueForKey("requestId") as? String != nil){
-                            self.requestId =  json?.valueForKey("requestId") as! String
+                            self.currentConnectedUser = json?.valueForKey("id") as! String
+                            
+                            if ((json?.valueForKey("full_name") as? String != nil))
+                            {
+                                self.thisUserName =  json?.valueForKey("full_name") as! String
+                            }
+                            
+                            if ((json?.valueForKey("vip") as? Bool != nil))
+                            {
+                                self.thisUserPro =  json?.valueForKey("vip") as! Bool
+                            }
+                            
+                            
+                            
+                            
+                            if ( json?.valueForKey("requestId") as? String != nil){
+                                self.requestId =  json?.valueForKey("requestId") as! String
+                            }
+                            else{
+                                self.requestId = "something"
+                            }
+                            
+                            if ( json?.valueForKey("age") as? String != nil){
+                                self.thisUserAge =  json?.valueForKey("age") as! String
+                            }
+                            
+                            if ( json?.valueForKey("city") as? String != nil)
+                            {
+                                self.thisUserCity =  json?.valueForKey("city") as! String
+                            }
+                            
+                            if (json?.valueForKey("country") as? String != nil)
+                            {
+                                self.thisUserCountry =  json?.valueForKey("country") as! String
+                            }
+                            
+                            if (json?.valueForKey("profile_pic") as? String != nil)
+                            {
+                                self.thisUserPic =  json?.valueForKey("profile_pic") as! String
+                            }
+                            
+                            if (json?.valueForKey("gender") as? String != nil)
+                            {
+                                self.thisUserGender =  json?.valueForKey("gender") as! String
+                            }
+                            
+                            self.startMakingConnectionToUser()
+                            
+                            
                         }
                         else{
-                            self.requestId = "something"
+                            //print ("GET BABY TRIED BUT FAILED. ATTEMPTING AGAIN")
+                            self.getMyBaby()
                         }
                         
-                        if ( json?.valueForKey("age") as? String != nil){
-                            self.thisUserAge =  json?.valueForKey("age") as! String
-                        }
                         
-                        if ( json?.valueForKey("city") as? String != nil)
-                        {
-                            self.thisUserCity =  json?.valueForKey("city") as! String
-                        }
-                        
-                        if (json?.valueForKey("country") as? String != nil)
-                        {
-                            self.thisUserCountry =  json?.valueForKey("country") as! String
-                        }
-                        
-                        if (json?.valueForKey("profile_pic") as? String != nil)
-                        {
-                            self.thisUserPic =  json?.valueForKey("profile_pic") as! String
-                        }
-                        
-                        if (json?.valueForKey("gender") as? String != nil)
-                        {
-                            self.thisUserGender =  json?.valueForKey("gender") as! String
-                        }
-                        
-                        self.startMakingConnectionToUser()
                         
                         
                     }
-                    else{
-                        //print ("GET BABY TRIED BUT FAILED. ATTEMPTING AGAIN")
+                    else
+                    {
+                        //print ("GET BABY RETURNED FALSE. ATTEMPTING AGAIN")
                         self.getMyBaby()
                     }
-                    
-                    
-                    
                     
                 }
                 else
                 {
-                    //print ("GET BABY RETURNED FALSE. ATTEMPTING AGAIN")
-                    self.getMyBaby()
+                    //print ("GET BABY RETURNED NIL. ATTEMPTING AGAIN")
+                    if (self.continueState)
+                    {
+                        
+                        self.getMyBaby()
+                    }
                 }
                 
+                
+                
+                
             }
-            else
-            {
-                //print ("GET BABY RETURNED NIL. ATTEMPTING AGAIN")
-                if (self.continueState)
-                {
-                    
-                    self.getMyBaby()
-                }
-            }
-            
-            
-            
-            
-        }
         }
     }
     
@@ -1515,8 +1517,8 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         
         
     }
-
-
+    
+    
     
     func getUserDetails()
     {
@@ -1644,19 +1646,19 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             self.matchSpecifications(self.allUsers)
             
             
-            }) { (errorResponse) -> Void in
-                
-                //print ("*** Response: \(errorResponse)")
-                
-                self.alert.dismissWithClickedButtonIndex(0, animated: true)
-                self.alert = UIAlertView()
-                self.alert.dismissWithClickedButtonIndex(0, animated: true)
-                self.alert = UIAlertView()
-                self.alert.title = "Error."
-                self.alert.message = "Please try again later."
-                self.alert.addButtonWithTitle("Ok")
-                //self.alert.show()
-                
+        }) { (errorResponse) -> Void in
+            
+            //print ("*** Response: \(errorResponse)")
+            
+            self.alert.dismissWithClickedButtonIndex(0, animated: true)
+            self.alert = UIAlertView()
+            self.alert.dismissWithClickedButtonIndex(0, animated: true)
+            self.alert = UIAlertView()
+            self.alert.title = "Error."
+            self.alert.message = "Please try again later."
+            self.alert.addButtonWithTitle("Ok")
+            //self.alert.show()
+            
         }
         
     }
@@ -1840,7 +1842,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         if (Int(userId) > Int(currentRequestyId))
         {
             var params = [  "id": "\(currentRequest)",
-                "friend":"\(currentConnectedUser)\(userId)", "responded":"true", "sendername":self.personNameString, "receivername":self.name]
+                            "friend":"\(currentConnectedUser)\(userId)", "responded":"true", "sendername":self.personNameString, "receivername":self.name]
             
             let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let client = delegate.client
@@ -1872,11 +1874,11 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         if (Int(userId) > Int(currentRequestyId))
         {
             var params = [  "id"            :   "\(currentRequest)",
-                "friend"        :   "\(currentConnectedUser)\(userId)",
-                "sendername"    :   self.personNameString,
-                "receivername"  :   self.name ,
-                "responded"     :   "true",
-                "accepted"      :   "true"      ]
+                            "friend"        :   "\(currentConnectedUser)\(userId)",
+                            "sendername"    :   self.personNameString,
+                            "receivername"  :   self.name ,
+                            "responded"     :   "true",
+                            "accepted"      :   "true"      ]
             
             let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let client = delegate.client
@@ -1899,11 +1901,11 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         else
         {
             var params = [  "id"            :   "\(currentRequest)",
-                "friend"        :   "\(userId)\(currentConnectedUser)",
-                "sendername"    :   self.personNameString,
-                "receivername"  :   self.name,
-                "responded"     :   "true",
-                "accepted"      :   "true"
+                            "friend"        :   "\(userId)\(currentConnectedUser)",
+                            "sendername"    :   self.personNameString,
+                            "receivername"  :   self.name,
+                            "responded"     :   "true",
+                            "accepted"      :   "true"
             ]
             
             let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -2103,13 +2105,13 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
     func createRoomAndWaitForUser()
     {
         
-//        if self.interstitial.isReady {
-//            self.interstitial.presentFromRootViewController(self)
-//        }
-//        else
-//        {
-//            //print ("Not Ready")
-//        }
+        //        if self.interstitial.isReady {
+        //            self.interstitial.presentFromRootViewController(self)
+        //        }
+        //        else
+        //        {
+        //            //print ("Not Ready")
+        //        }
         
         currentSeconds = 60
         //print ("Creating Room...")
@@ -2492,8 +2494,8 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         {
             
             let params = [  "UserId": str ,
-                "request_type":"video",
-                "request_by":"\(userId)"]
+                            "request_type":"video",
+                            "request_by":"\(userId)"]
             
             //print (params);
             Alamofire.request(.POST, "\(self.url)pendingRequests.php", parameters: params).responseJSON {
@@ -2564,8 +2566,8 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         self.userInfoView.fadeOut()
         self.proInfo.fadeOut()
         
-//        self.userInfoView.hidden = true
-//        self.proInfo.hidden = true
+        //        self.userInfoView.hidden = true
+        //        self.proInfo.hidden = true
         //self.blurBG!.hidden = true
     }
     @IBOutlet weak var proInfo: UIView!
@@ -2670,7 +2672,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
     
     
     @IBAction func sendReport(sender: UIButton) {
-    
+        
         
         sender.enabled = false
         var id = "\(sender.tag)"
@@ -2682,7 +2684,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
     @IBAction func cancelReport(sender: UIButton) {
         
         self.reportView.hidden = true
-       
+        
     }
     
     
@@ -2764,7 +2766,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
                 // self.proInfo.hidden = true
                 self.proInfo.fadeOut()
             }
-
+            
             
             self.infoName.text = "\(self.connectedUserDetails[1] as! String) \(self.connectedUserDetails[2] as! String)"
             
@@ -2810,10 +2812,10 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         self.interstitial.loadRequest(request)
         
         
-//        let jeremyGif = UIImage.gifWithName("Spinner (1)")
-//        
-//        loadingGif.image = jeremyGif
-
+        //        let jeremyGif = UIImage.gifWithName("Spinner (1)")
+        //        
+        //        loadingGif.image = jeremyGif
+        
         
         imagePicker.delegate = self
         
@@ -2876,18 +2878,18 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         
         var item = ["blocktype":"1","blocker":myId,"blocky":BlockUserId, "both":"\(myId)\(BlockUserId)"]
         
-//        itemTable.insert(item) { (user, error) in
-//            
-//            if (error == nil)
-//            {
-//                //self.nextPressed(UIBarButtonItem())
-//            }
-//            else
-//            {
-//                //print ("ERROR BLOCKING USER: \(error.localizedDescription)")
-//            }
-//            
-//        }
+        //        itemTable.insert(item) { (user, error) in
+        //            
+        //            if (error == nil)
+        //            {
+        //                //self.nextPressed(UIBarButtonItem())
+        //            }
+        //            else
+        //            {
+        //                //print ("ERROR BLOCKING USER: \(error.localizedDescription)")
+        //            }
+        //            
+        //        }
     }
     
     
@@ -2913,7 +2915,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             
         }
     }
-
+    
     
     func makeRequest()
     {
@@ -2935,7 +2937,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         
         self.capture = QBRTCVideoCapture()
         
-       // getUserDetails()
+        // getUserDetails()
         
         ////print (chatDialog.name)
         //print (self.title)
@@ -3129,9 +3131,9 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             self.startMakingConnection()
             
             
-            }) { (responce : QBResponse!) -> Void in
-                //print("***Error: \(responce)")
-                
+        }) { (responce : QBResponse!) -> Void in
+            //print("***Error: \(responce)")
+            
         }
         
     }
@@ -3198,13 +3200,13 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
     }
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }

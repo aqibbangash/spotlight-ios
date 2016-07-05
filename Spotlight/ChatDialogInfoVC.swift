@@ -10,11 +10,14 @@ import UIKit
 import Quickblox
 import Alamofire
 import GTToast
-import GoogleMobileAds
+//import GoogleMobileAds
+import FirebaseAnalytics
+import Firebase
 
 class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITextFieldDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
+    var uniqueId:String!
     var typeOfConvo:String!
     var json:NSDictionary!
     var personNumber = 0
@@ -342,10 +345,21 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     
     @IBOutlet weak var hasLeft: UILabel!
     
+    func printTimestamp() -> String {
+        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+        return (timestamp)
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "toMessageDetails")
         {
+            
+            
+            var params = ["session": "\(self.typeOfConvo)-\(self.uniqueId)", "user":"\(self.userId)", "time": printTimestamp(), "type":"found", "personNumber":self.personNumber]
+            
+            FIRAnalytics.logEventWithName("\(self.typeOfConvo)Search", parameters: params as! [String : NSObject])
             
             
             let nav = segue.destinationViewController as! UINavigationController
@@ -558,7 +572,7 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     {
         self.chatScrollView.contentSize.height = self.chatScrollView.frame.height
         //print ("*Getting all previos messages")
-        var resPage = QBResponsePage(limit: Int(total), skip: Int(startingFrom))
+        var resPage = QBResponsePage()
         
         QBRequest.messagesWithDialogID(self.currentChatDialog.ID!, extendedRequest: nil, forPage: resPage, successBlock: { (res:QBResponse, allM:[QBChatMessage]?, newResPage:QBResponsePage?) -> Void in
             

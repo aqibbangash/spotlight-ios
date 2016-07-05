@@ -8,10 +8,13 @@
 
 import UIKit
 import Quickblox
-import GoogleMobileAds
+//import GoogleMobileAds
 import Alamofire
 import GTToast
 import CTShowcase
+//import GoogleMobileAds
+import Firebase
+import FirebaseAnalytics
 
 extension String {
     
@@ -1088,7 +1091,18 @@ class HomeVC: UIViewController {
         
     }
     
+    func printTimestamp() -> String {
+        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+        return (timestamp)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        var baseIntA = Int(arc4random() % 65535)
+        var baseIntB = Int(arc4random() % 65535)
+        var str = String(format: "%06X%06X", baseIntA, baseIntB)
+        
         
         if (segue.identifier == "direct")
         {
@@ -1097,6 +1111,9 @@ class HomeVC: UIViewController {
             //print ("Self Req id: \(self.requestId)")
             let vc = nav.topViewController as! ChatDialogInfoVC
             vc.typeOfConvo = "text"
+            vc.uniqueId = "text-\(str)"
+            var params = ["session": "text-\(str)", "user":"\(self.userId)", "time": printTimestamp(), "type":"start"]
+            FIRAnalytics.logEventWithName("textSearch", parameters: params)
             //print ("Self Req id: \(self.requestId)")
             //print ("Sent Req id: \(vc.requestId)")
             
@@ -1109,6 +1126,9 @@ class HomeVC: UIViewController {
             //print ("Self Req id: \(self.requestId)")
             let vc = nav.topViewController as! ChatDialogInfoVC
             vc.typeOfConvo = "video"
+            vc.uniqueId = "video-\(str)"
+            var params = ["session": "video-\(str)", "user":"\(self.userId)", "time": printTimestamp(), "type":"start"]
+            FIRAnalytics.logEventWithName("videoSearch", parameters: params)
             //print ("Self Req id: \(self.requestId)")
             //print ("Sent Req id: \(vc.requestId)")
             

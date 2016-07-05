@@ -11,6 +11,8 @@ import Quickblox
 import Alamofire
 import GTToast
 import Parse
+import FirebaseAnalytics
+import Firebase
 
 class SignUp3: UIViewController {
     
@@ -38,17 +40,17 @@ class SignUp3: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         emailLabel.attributedPlaceholder = NSAttributedString(string:"Email",
-            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         
         passwordLabel.attributedPlaceholder = NSAttributedString(string:"Password",
-            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         
         confirmPassword.attributedPlaceholder = NSAttributedString(string:"Confirm Password",
-            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+                                                                   attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         
         
-//        let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
-//        let underlineAttributedString = NSAttributedString(string: "Terms and Conditions", attributes: underlineAttribute)
+        //        let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
+        //        let underlineAttributedString = NSAttributedString(string: "Terms and Conditions", attributes: underlineAttribute)
         //labelTerms.attributedText = underlineAttributedString
         
     }
@@ -148,6 +150,7 @@ class SignUp3: UIViewController {
             
             //            self.dismissViewControllerAnimated(true, completion: nil)
             
+            
             alert.message = "Setting Things Up For you..."
             
             var fName:String = "Anonymous", lName:String = "User", gender:String = "A", country:String = "Unknown", city:String = "Unknown", profile:String = "https://www.drupal.org/files/profile_default.jpg", email:String = "", password:String = "" ;
@@ -182,6 +185,14 @@ class SignUp3: UIViewController {
                 
             ]
             
+            //            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+            //                kFIRParameterContentType:"cont",
+            //                kFIRParameterItemID:"1"
+            //                ])
+            
+            
+            FIRAnalytics.logEventWithName("UserSignup", parameters: params as! [String : NSObject])
+            
             let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let client = delegate.client
             let item = params
@@ -204,7 +215,7 @@ class SignUp3: UIViewController {
                 {
                     alert.message = "Logging In."
                     
-                     alert.dismissWithClickedButtonIndex(0, animated: true)
+                    alert.dismissWithClickedButtonIndex(0, animated: true)
                     //self.dismissViewControllerAnimated(true, completion: nil)
                     
                     //self.performSegueWithIdentifier("backToLogin", sender: self)
@@ -383,7 +394,7 @@ class SignUp3: UIViewController {
             
             query.readWithCompletion({ (result, error) -> Void in
                 
-               
+                
                 
                 alert.dismissWithClickedButtonIndex(0, animated: true)
                 

@@ -10,6 +10,8 @@ import UIKit
 import MICountryPicker
 import GTToast
 import Quickblox
+import Firebase
+import FirebaseAnalytics
 
 extension NSMutableData {
     
@@ -445,6 +447,8 @@ class SignUp2: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
                       "vip":false
             
         ]
+        
+        FIRAnalytics.logEventWithName("UpdateInfo", parameters: params as! [String : NSObject])
         
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let client = delegate.client

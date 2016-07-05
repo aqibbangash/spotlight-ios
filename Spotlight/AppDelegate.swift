@@ -15,6 +15,8 @@ import Bolts
 import GTToast
 import Fabric
 import Crashlytics
+import Firebase
+import FirebaseAnalytics
 
 
 
@@ -386,6 +388,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //                print ("error sending")
         //        }
         //        
+        
+        
+        FIRApp.configure()
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }

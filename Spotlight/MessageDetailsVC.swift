@@ -10,10 +10,14 @@ import Quickblox
 import Alamofire
 import GTToast
 import Parse
-import GoogleMobileAds
+//import GoogleMobileAds
+import Firebase
+import FirebaseAnalytics
 
 class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITextFieldDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, GADInterstitialDelegate {
     
+    var personNumber:Int!
+    var uniqueId:String!
     @IBOutlet weak var topSpace: NSLayoutConstraint!
     var accpt = false
     @IBOutlet weak var btnViewInfo: UIButton!
@@ -90,6 +94,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     }
     
     
+    func printTimestamp() -> String {
+        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+        return (timestamp)
+    }
+    
     func connectWithChat()
     {
         let user = QBUUser()
@@ -100,6 +109,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             
             if (error == nil){
                 self.connectionStatus.text  = ("Connected")
+                
+                var params = ["session": "\(self.connectionFrom.lowercaseString)-\(self.uniqueId)", "user":"\(self.userId)", "time": self.printTimestamp(), "type":"connected", "personNumber":self.personNumber]
+                
+                FIRAnalytics.logEventWithName("\(self.connectionFrom.lowercaseString)Search", parameters: params as! [String : NSObject])
+                
                 
                 //self.joinRoom()
                 
@@ -1213,7 +1227,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         
         ////print ("YYY: \(self.startingY)")
         
-        var resPage = QBResponsePage(limit: Int(total), skip: Int(startingFrom))
+        var resPage = QBResponsePage()
         
         QBRequest.messagesWithDialogID(chatDialog.ID!, extendedRequest: nil, forPage: resPage, successBlock: { (res:QBResponse, allM:[QBChatMessage]?, newResPage:QBResponsePage?) -> Void in
             
@@ -1493,6 +1507,12 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         
         self.reportView.hidden = true
         
+        if (!self.continueState)
+        {
+            self.nextPersonAttempt()
+        }
+        
+        
     }
     @IBAction func report(sender: UIButton) {
         self.reportView.hidden = false
@@ -1582,6 +1602,8 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         
         reportuser("\(self.currentConnectedUser)", s: "\(self.userId)")
         self.reportView.hidden = true
+        self.nextPersonAttempt()
+        
         
     }
     
@@ -2122,11 +2144,16 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         }
         
         self.continueState = false
-        self.nextPersonAttempt()
+        
+        if (self.reportView.hidden == true)
+        {
+            self.nextPersonAttempt()
+        }
         
     }
     @IBAction func nextPersonNo(sender: UIButton) {
         
+        self.reportView.hidden = true
         self.nextPersonView.hidden = true
     }
     @IBOutlet weak var nextPersonView: UIView!
@@ -2710,6 +2737,8 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         }
     }
     
+    var sentLogs:Bool = false
+    var receivedLogs:Bool = false
     
     func session(session: QBRTCSession!, updatedStatsReport report: QBRTCStatsReport!, forUserID userID: NSNumber!) {
         
@@ -2736,6 +2765,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             var videoSendFormat = "VS (input) %@x%@@%@fps | (sent) %@x%@@%@fps\n"
             videoSendFormat = "\(videoSendFormat)VS (enc) %@/%@ | (sent) %@/%@ | %@ms | %@\n"
             
+            
             var s1 =  NSString(format: videoSendFormat,report.videoSendInputWidth, report.videoSendInputHeight, report.videoSendInputFps,
                                report.videoSendWidth, report.videoSendHeight, report.videoSendFps,
                                report.actualEncodingBitrate, report.targetEncodingBitrate,
@@ -2744,6 +2774,13 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                                report.videoSendCodec)
             
             result = "\(result)\(s1)"
+            
+            var params1 = ["session": "\(self.connectionFrom.lowercaseString)-\(self.uniqueId)", "user":"\(self.userId)", "withUser":"\(self.currentConnectedUser)","time": self.printTimestamp(), "type":"sendStats", "personNumber":self.personNumber, "log":result]
+            
+            FIRAnalytics.logEventWithName("VideoCall", parameters: params1 as! [String : NSObject])
+            
+            
+            
             
             // Video receive stats.
             var videoReceiveFormat = "VR (recv) %@x%@@%@fps | (decoded)%@ | (output)%@fps | %@/%@ | %@ms\n"
@@ -2755,6 +2792,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                                report.videoReceivedDecodeMs)
             
             result = "\(result)\(s2)"
+            
+            var params2 = ["session": "\(self.connectionFrom.lowercaseString)-\(self.uniqueId)", "user":"\(self.userId)", "withUser":"\(self.currentConnectedUser)","time": self.printTimestamp(), "type":"recStats", "personNumber":self.personNumber, "log":result]
+            
+            FIRAnalytics.logEventWithName("VideoCall", parameters: params2 as! [String : NSObject])
+            
             
             
         }
@@ -3476,7 +3518,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         if (connectionFrom == "Text")
         {
             showConnectedUserDetails(true)
-            self.topSpaceScroller.constant = 80
+            self.topSpaceScroller.constant = 10
             self.makeDashVisible()
             
             

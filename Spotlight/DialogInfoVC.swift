@@ -9,8 +9,10 @@
 import UIKit
 import Quickblox
 import Alamofire
-import GoogleMobileAds
+//import GoogleMobileAds
 import GTToast
+import Firebase
+
 
 public extension UIView {
     

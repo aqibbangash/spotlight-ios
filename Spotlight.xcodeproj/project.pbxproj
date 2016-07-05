@@ -17,6 +17,8 @@
 		A213FAF91C907BE3008C0075 /* friendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A213FAF81C907BE3008C0075 /* friendCell.swift */; };
 		A213FAFB1C9182E8008C0075 /* GTToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A213FAFA1C9182E8008C0075 /* GTToast.framework */; };
 		A2163A771CA15C06006A0107 /* picka.gif in Resources */ = {isa = PBXBuildFile; fileRef = A2163A761CA15C06006A0107 /* picka.gif */; };
+		A21791C71D2BECB700960F32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A21791C61D2BECB700960F32 /* GoogleService-Info.plist */; };
+		A21791C91D2BECC100960F32 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = A21791C81D2BECC100960F32 /* GoogleService-Info-3.plist */; };
 		A21B02BA1C9CA85500BEB38E /* btn-line.png in Resources */ = {isa = PBXBuildFile; fileRef = A21B02B91C9CA85500BEB38E /* btn-line.png */; };
 		A220FCBC1C7BDC4100451D88 /* QuickbloxWebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A220FCBB1C7BDC4100451D88 /* QuickbloxWebRTC.framework */; };
 		A22130FC1D19CB03001FBC22 /* bg-gradient-notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = A22130FB1D19CB03001FBC22 /* bg-gradient-notifications.png */; };
@@ -182,6 +184,8 @@
 		A213FAF81C907BE3008C0075 /* friendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendCell.swift; sourceTree = "<group>"; };
 		A213FAFA1C9182E8008C0075 /* GTToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTToast.framework; path = "Pods/../build/Debug-iphoneos/GTToast.framework"; sourceTree = "<group>"; };
 		A2163A761CA15C06006A0107 /* picka.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = picka.gif; sourceTree = "<group>"; };
+		A21791C61D2BECB700960F32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A21791C81D2BECC100960F32 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 		A21B02B91C9CA85500BEB38E /* btn-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-line.png"; sourceTree = "<group>"; };
 		A220FCBB1C7BDC4100451D88 /* QuickbloxWebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuickbloxWebRTC.framework; sourceTree = "<group>"; };
 		A22130FB1D19CB03001FBC22 /* bg-gradient-notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient-notifications.png"; sourceTree = "<group>"; };
@@ -614,6 +618,7 @@
 		A2D7E0301C6E3A5600C1C95B = {
 			isa = PBXGroup;
 			children = (
+				A21791C81D2BECC100960F32 /* GoogleService-Info-3.plist */,
 				A2D7E03B1C6E3A5600C1C95B /* Spotlight */,
 				A2D7E0501C6E3A5600C1C95B /* SpotlightTests */,
 				A2D7E05B1C6E3A5700C1C95B /* SpotlightUITests */,
@@ -649,6 +654,7 @@
 				A2E59B201C6EE44C00CF217A /* Bridging-Header.h */,
 				A2D7E0431C6E3A5600C1C95B /* Assets.xcassets */,
 				A2D7E0481C6E3A5600C1C95B /* Info.plist */,
+				A21791C61D2BECB700960F32 /* GoogleService-Info.plist */,
 			);
 			path = Spotlight;
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				A23621EE1CC5AE9B00664803 /* bg-intro.png in Resources */,
 				A2298E111C95B4BF009DF8B5 /* btn_facebook.png in Resources */,
 				A2B5AF4C1C87402000FB7043 /* welcome-bg.png in Resources */,
+				A21791C91D2BECC100960F32 /* GoogleService-Info-3.plist in Resources */,
 				A2298E1A1C95B6A6009DF8B5 /* btn_settings.png in Resources */,
 				A2298E251C95C3F6009DF8B5 /* btn_back.png in Resources */,
 				A29311431CFDA301007D3DF8 /* btn_web.png in Resources */,
@@ -827,6 +834,7 @@
 				A2E65B271CAC2A010054E1B1 /* btn-bg-gradient.png in Resources */,
 				A2FA82C71CD78943005C5860 /* bg-showInfo.png in Resources */,
 				A2A53D351C7DB266006083BD /* bg-gradient.jpg in Resources */,
+				A21791C71D2BECB700960F32 /* GoogleService-Info.plist in Resources */,
 				A2E65B331CAC37450054E1B1 /* btn-fb.png in Resources */,
 				A2298E211C95B860009DF8B5 /* btn_fr.png in Resources */,
 				A2163A771CA15C06006A0107 /* picka.gif in Resources */,

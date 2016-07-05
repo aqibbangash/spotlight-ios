@@ -17,7 +17,7 @@ pod 'M13ProgressSuite', '~> 1.2'
 pod 'iShowcase', '~> 1.5'
 pod 'CTShowcase', '~> 1.0'
 pod 'MBRateApp', '~> 0.1'
-
+pod 'Firebase'
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
