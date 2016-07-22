@@ -36,8 +36,8 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         userDefaults.setBool(false, forKey: "notification")
         userDefaults.synchronize()
         
-       // getAllFriendsAzure()
-    
+        // getAllFriendsAzure()
+        
         //getAllOnlineUsers()
         
     }
@@ -47,7 +47,7 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func fetchUserInfro(uId:String)
     {
-
+        
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let client = delegate.client
         let itemTable = client.tableWithName("users")
@@ -80,26 +80,26 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     print ("count received: \(result.items.count)")
                     
                     
-                        for u in result.items{
-                            
-                            
-                            print ("Attempting save for user")
-                            
-                            var details = "\(u.valueForKey("id") as! String),\(u.valueForKey("first_name") as! String),\(u.valueForKey("last_name") as! String),\(u.valueForKey("gender") as! String),\(u.valueForKey("country") as! String),\(u.valueForKey("city") as! String),\((u.valueForKey("age") as! String).stringByReplacingOccurrencesOfString(",", withString: "")),\(u.valueForKey("profile_pic") as! String),\(u.valueForKey("email") as! String),\(u.valueForKey("points") as! String),\(u.valueForKey("prefs") as! String)"
-                            
-                            if (u.valueForKey("vip") as? Bool != nil)
-                            {
-                                details += ",\(u.valueForKey("vip") as! Bool)"
-                            }else
-                            {
-                                details += ",false"
-                            }
-                            print ("Saved info for user \(u.valueForKey("id") as! String)")
-                            print ("DETAILS : \(details)")
-                            print ("user-\(u.valueForKey("id") as! String)")
-                            userDefaults.setObject(details, forKey: "user-\(u.valueForKey("id") as! String)")
-                            
+                    for u in result.items{
+                        
+                        
+                        print ("Attempting save for user")
+                        
+                        var details = "\(u.valueForKey("id") as! String),\(u.valueForKey("first_name") as! String),\(u.valueForKey("last_name") as! String),\(u.valueForKey("gender") as! String),\(u.valueForKey("country") as! String),\(u.valueForKey("city") as! String),\((u.valueForKey("age") as! String).stringByReplacingOccurrencesOfString(",", withString: "")),\(u.valueForKey("profile_pic") as! String),\(u.valueForKey("email") as! String),\(u.valueForKey("points") as! String),\(u.valueForKey("prefs") as! String)"
+                        
+                        if (u.valueForKey("vip") as? Bool != nil)
+                        {
+                            details += ",\(u.valueForKey("vip") as! Bool)"
+                        }else
+                        {
+                            details += ",false"
                         }
+                        print ("Saved info for user \(u.valueForKey("id") as! String)")
+                        print ("DETAILS : \(details)")
+                        print ("user-\(u.valueForKey("id") as! String)")
+                        userDefaults.setObject(details, forKey: "user-\(u.valueForKey("id") as! String)")
+                        
+                    }
                     
                     userDefaults.synchronize()
                     self.getConnectedUserDetails(uId)
@@ -108,18 +108,18 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     
                 }
                 
-               
+                
             }
             
         });
-    
         
-    
+        
+        
     }
     
-
+    
     func ltzOffset() -> Double { return Double(NSTimeZone.localTimeZone().secondsFromGMT) }
-
+    
     
     func getAllOnlineUsers()
     {
@@ -222,7 +222,7 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
     }
-
+    
     
     
     override func viewDidLoad() {
@@ -243,7 +243,7 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func filteFriendsrDialogs()
     {
-       
+        
         recepts = []
         for x in dialogs{
             
@@ -309,17 +309,17 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 self.friendsList = result.items
                 self.tableView.reloadData()
                 
-//                print (result.items.count)
-//                self.friendsList = result.items
-//                
-//                for x in result.items{
-//                    
-//                    print ("Adding this: \((x.valueForKey("friend") as! String).stringByReplacingOccurrencesOfString("\(self.userId)", withString: ""))")
-//                    
-//                    self.friendsString += (x.valueForKey("friend") as! String).stringByReplacingOccurrencesOfString("\(self.userId)", withString: "")
-//                }
-//             
-//                print ("All Friends: \(self.friendsString)")
+                //                print (result.items.count)
+                //                self.friendsList = result.items
+                //                
+                //                for x in result.items{
+                //                    
+                //                    print ("Adding this: \((x.valueForKey("friend") as! String).stringByReplacingOccurrencesOfString("\(self.userId)", withString: ""))")
+                //                    
+                //                    self.friendsString += (x.valueForKey("friend") as! String).stringByReplacingOccurrencesOfString("\(self.userId)", withString: "")
+                //                }
+                //             
+                //                print ("All Friends: \(self.friendsString)")
                 
                 
                 //self.getAllDialog()
@@ -339,6 +339,7 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             let nav = segue.destinationViewController as! UINavigationController
             let vc = nav.topViewController as! MessageDetailsVC
+            vc.personNumber = 1
             vc.recipientID = Int(recepts[curr])
             
             
@@ -380,10 +381,10 @@ class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             self.filteFriendsrDialogs()
             
-            }) { (response: QBResponse) -> Void in
-                
-                print("Error Response: \(response)")
-                
+        }) { (response: QBResponse) -> Void in
+            
+            print("Error Response: \(response)")
+            
         }
     }
     func stringFromTimeInterval(interval: NSTimeInterval) -> String {

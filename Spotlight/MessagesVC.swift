@@ -54,13 +54,13 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func openAccount(sender: UIButton) {
-    
+        
         self.performSegueWithIdentifier("toAccount", sender: self)
         closeMenu()
     }
     
     @IBAction func openFriends(sender: UIButton) {
-     self.performSegueWithIdentifier("toFriends", sender: self)
+        self.performSegueWithIdentifier("toFriends", sender: self)
         closeMenu()
     }
     
@@ -78,7 +78,7 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func fetchUserInfro(uId:String)
     {
-
+        
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let client = delegate.client
         let itemTable = client.tableWithName("users")
@@ -111,26 +111,26 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     print ("count received: \(result.items.count)")
                     
                     
-                        for u in result.items{
-                            
-                            
-                            print ("Attempting save for user")
-                            
-                            var details = "\(u.valueForKey("id") as! String),\(u.valueForKey("first_name") as! String),\(u.valueForKey("last_name") as! String),\(u.valueForKey("gender") as! String),\(u.valueForKey("country") as! String),\(u.valueForKey("city") as! String),\((u.valueForKey("age") as! String).stringByReplacingOccurrencesOfString(",", withString: "")),\(u.valueForKey("profile_pic") as! String),\(u.valueForKey("email") as! String),\(u.valueForKey("points") as! String),\(u.valueForKey("prefs") as! String)"
-                            
-                            if (u.valueForKey("vip") as? Bool != nil)
-                            {
-                                details += ",\(u.valueForKey("vip") as! Bool)"
-                            }else
-                            {
-                                details += ",false"
-                            }
-                            print ("Saved info for user \(u.valueForKey("id") as! String)")
-                            print ("DETAILS : \(details)")
-                            print ("user-\(u.valueForKey("id") as! String)")
-                            userDefaults.setObject(details, forKey: "user-\(u.valueForKey("id") as! String)")
-                            
+                    for u in result.items{
+                        
+                        
+                        print ("Attempting save for user")
+                        
+                        var details = "\(u.valueForKey("id") as! String),\(u.valueForKey("first_name") as! String),\(u.valueForKey("last_name") as! String),\(u.valueForKey("gender") as! String),\(u.valueForKey("country") as! String),\(u.valueForKey("city") as! String),\((u.valueForKey("age") as! String).stringByReplacingOccurrencesOfString(",", withString: "")),\(u.valueForKey("profile_pic") as! String),\(u.valueForKey("email") as! String),\(u.valueForKey("points") as! String),\(u.valueForKey("prefs") as! String)"
+                        
+                        if (u.valueForKey("vip") as? Bool != nil)
+                        {
+                            details += ",\(u.valueForKey("vip") as! Bool)"
+                        }else
+                        {
+                            details += ",false"
                         }
+                        print ("Saved info for user \(u.valueForKey("id") as! String)")
+                        print ("DETAILS : \(details)")
+                        print ("user-\(u.valueForKey("id") as! String)")
+                        userDefaults.setObject(details, forKey: "user-\(u.valueForKey("id") as! String)")
+                        
+                    }
                     
                     userDefaults.synchronize()
                     self.getConnectedUserDetails(uId)
@@ -153,13 +153,13 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     self.noMessagesFound.hidden = false
                 }
                 
-               
+                
             }
             
         });
-    
         
-    
+        
+        
     }
     
     override func viewDidLoad() {
@@ -179,7 +179,7 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func filteFriendsrDialogs()
     {
-       
+        
         recepts = []
         for x in dialogs{
             
@@ -295,7 +295,7 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
                     self.friendsString += (x.valueForKey("friend") as! String).stringByReplacingOccurrencesOfString("\(self.userId)", withString: "")
                 }
-             
+                
                 print ("All Friends: \(self.friendsString)")
                 
                 self.getAllDialog()
@@ -319,6 +319,7 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             vc.json = json
             vc.connectionFrom = "Messages"
             vc.showAdd = false
+            vc.personNumber = 1
             
             if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("profile_pic") {
                 
@@ -326,7 +327,7 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 //print ("***\(userPassword)")
                 
             }
-
+            
             
             
             
@@ -377,10 +378,10 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             //self.filteFriendsrDialogs()
             
-            }) { (response: QBResponse) -> Void in
-                
-                print("Error Response: \(response)")
-                
+        }) { (response: QBResponse) -> Void in
+            
+            print("Error Response: \(response)")
+            
         }
     }
     
@@ -450,9 +451,9 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         return abc
     }
-        
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
+        
         
         var unreadCount = filterDialogs[indexPath.row].unreadMessagesCount
         

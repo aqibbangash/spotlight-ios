@@ -7291,11 +7291,11 @@ Email: support@spotlightrc.com
                         <viewControllerLayoutGuide type="bottom" id="lka-vy-S08"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="a42-oP-vYY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uND-Jj-kIZ">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Members:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pZ-CD-ct7">
                                         <rect key="frame" x="0.0" y="-20" width="335" height="21"/>
@@ -7355,29 +7355,29 @@ Email: support@spotlightrc.com
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejd-Vn-PzM" userLabel="FrontView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-gradient.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JwX-My-hYP">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqM-jO-QV0">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="415"/>
+                                        <rect key="frame" x="0.0" y="44" width="375" height="514"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </scrollView>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwP-FO-pQ0">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTT-M7-5RJ">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6N-Xq-Ra4">
-                                        <rect key="frame" x="0.0" y="498" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="597" width="375" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8l-6Y-3El">
                                                 <rect key="frame" x="8" y="4" width="41" height="41"/>
@@ -7390,13 +7390,13 @@ Email: support@spotlightrc.com
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Send a message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-tq-t1J">
-                                                <rect key="frame" x="59" y="4" width="161" height="41"/>
+                                                <rect key="frame" x="59" y="4" width="216" height="41"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8a-I5-V5U">
-                                                <rect key="frame" x="220" y="4" width="41" height="41"/>
+                                                <rect key="frame" x="275" y="4" width="41" height="41"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="z8a-I5-V5U" secondAttribute="height" multiplier="1:1" id="82e-Eo-A93"/>
@@ -7407,7 +7407,7 @@ Email: support@spotlightrc.com
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3D-VH-lxw">
-                                                <rect key="frame" x="271" y="4" width="41" height="41"/>
+                                                <rect key="frame" x="326" y="4" width="41" height="41"/>
                                                 <state key="normal" backgroundImage="btn_send.png"/>
                                                 <connections>
                                                     <action selector="sendM:" destination="X0t-V5-Gqe" eventType="touchUpInside" id="3d8-zj-0NV"/>
@@ -7445,8 +7445,12 @@ Email: support@spotlightrc.com
                                             </mask>
                                         </variation>
                                     </view>
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Das-RB-V6b">
+                                        <rect key="frame" x="-0.5" y="0.0" width="375" height="109"/>
+                                        <color key="backgroundColor" red="0.1215686275" green="0.17254901959999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64r-xn-DWC">
-                                        <rect key="frame" x="15" y="469" width="289.5" height="21"/>
+                                        <rect key="frame" x="18" y="568" width="339" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="0w6-Hl-e1w"/>
                                         </constraints>
@@ -7455,7 +7459,7 @@ Email: support@spotlightrc.com
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yl4-a7-rSK">
-                                        <rect key="frame" x="0.0" y="54" width="320" height="21"/>
+                                        <rect key="frame" x="0.0" y="49" width="375" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="XfR-2i-Qo8"/>
                                         </constraints>
@@ -7464,26 +7468,26 @@ Email: support@spotlightrc.com
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57G-ny-MOr">
-                                        <rect key="frame" x="80" y="93" width="160" height="21"/>
+                                        <rect key="frame" x="0.5" y="88" width="375" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyN-Jq-yhf">
-                                        <rect key="frame" x="0.0" y="54" width="320" height="434"/>
+                                        <rect key="frame" x="0.0" y="54" width="375" height="533"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rv8-Be-Zpf" customClass="GADBannerView">
-                                        <rect key="frame" x="31" y="114" width="257" height="40"/>
+                                        <rect key="frame" x="37" y="109" width="301" height="47"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Rv8-Be-Zpf" secondAttribute="height" multiplier="320:50" id="VsQ-RT-Usg"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJj-Cf-iGN">
-                                        <rect key="frame" x="80" y="77" width="160" height="21"/>
+                                        <rect key="frame" x="94" y="72" width="188" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="View Information" backgroundImage="bg-showInfo.png"/>
+                                        <state key="normal" title="View Information"/>
                                         <connections>
                                             <action selector="viewInformation:" destination="X0t-V5-Gqe" eventType="touchUpInside" id="CSd-jZ-K3s"/>
                                         </connections>
@@ -7496,8 +7500,10 @@ Email: support@spotlightrc.com
                                     <constraint firstItem="pJj-Cf-iGN" firstAttribute="centerX" secondItem="Yl4-a7-rSK" secondAttribute="centerX" id="2Zk-OM-Kfx"/>
                                     <constraint firstItem="P6N-Xq-Ra4" firstAttribute="width" secondItem="Ejd-Vn-PzM" secondAttribute="width" id="3Ul-qk-HZT"/>
                                     <constraint firstItem="57G-ny-MOr" firstAttribute="height" secondItem="pJj-Cf-iGN" secondAttribute="height" id="75Z-r4-uKG"/>
+                                    <constraint firstItem="Das-RB-V6b" firstAttribute="top" secondItem="Ejd-Vn-PzM" secondAttribute="top" id="8pL-85-OXO"/>
                                     <constraint firstItem="64r-xn-DWC" firstAttribute="width" secondItem="Ejd-Vn-PzM" secondAttribute="width" multiplier="0.9" constant="1" id="AbA-Xl-hBd"/>
                                     <constraint firstItem="LyN-Jq-yhf" firstAttribute="centerX" secondItem="Ejd-Vn-PzM" secondAttribute="centerX" id="BuD-Lt-eg7"/>
+                                    <constraint firstItem="Das-RB-V6b" firstAttribute="centerX" secondItem="Ejd-Vn-PzM" secondAttribute="centerX" id="CHX-SY-1Yp"/>
                                     <constraint firstItem="PwP-FO-pQ0" firstAttribute="height" secondItem="Ejd-Vn-PzM" secondAttribute="height" id="CVW-Yn-fkc"/>
                                     <constraint firstItem="gqM-jO-QV0" firstAttribute="centerX" secondItem="JwX-My-hYP" secondAttribute="centerX" id="D7F-gy-zwA"/>
                                     <constraint firstItem="gqM-jO-QV0" firstAttribute="top" secondItem="57G-ny-MOr" secondAttribute="bottom" constant="10" id="HOw-KY-5aU"/>
@@ -7515,12 +7521,15 @@ Email: support@spotlightrc.com
                                     <constraint firstItem="57G-ny-MOr" firstAttribute="width" secondItem="pJj-Cf-iGN" secondAttribute="width" id="XRH-7G-Jhw"/>
                                     <constraint firstItem="dTT-M7-5RJ" firstAttribute="top" secondItem="PwP-FO-pQ0" secondAttribute="bottom" id="Ydh-dW-iYB"/>
                                     <constraint firstItem="PwP-FO-pQ0" firstAttribute="centerX" secondItem="Ejd-Vn-PzM" secondAttribute="centerX" id="ZCZ-Ig-FYd"/>
+                                    <constraint firstItem="Das-RB-V6b" firstAttribute="width" secondItem="Ejd-Vn-PzM" secondAttribute="width" id="aYZ-Ji-Nxu"/>
                                     <constraint firstItem="dTT-M7-5RJ" firstAttribute="width" secondItem="PwP-FO-pQ0" secondAttribute="width" id="alE-ie-TbD"/>
                                     <constraint firstItem="gqM-jO-QV0" firstAttribute="top" secondItem="dTT-M7-5RJ" secondAttribute="bottom" constant="10" id="b46-ir-Lue"/>
                                     <constraint firstItem="pJj-Cf-iGN" firstAttribute="width" secondItem="Yl4-a7-rSK" secondAttribute="width" multiplier="0.5" id="dCH-ke-JM6"/>
                                     <constraint firstItem="PwP-FO-pQ0" firstAttribute="width" secondItem="Ejd-Vn-PzM" secondAttribute="width" id="fQe-Xs-TZJ"/>
+                                    <constraint firstItem="57G-ny-MOr" firstAttribute="width" secondItem="Ejd-Vn-PzM" secondAttribute="width" id="fg0-uH-NjX"/>
                                     <constraint firstItem="57G-ny-MOr" firstAttribute="top" secondItem="gqM-jO-QV0" secondAttribute="bottom" constant="-245" id="gvF-L5-hzY"/>
                                     <constraint firstItem="pJj-Cf-iGN" firstAttribute="height" secondItem="Yl4-a7-rSK" secondAttribute="height" id="hhS-kA-sub"/>
+                                    <constraint firstItem="Das-RB-V6b" firstAttribute="bottom" secondItem="57G-ny-MOr" secondAttribute="bottom" id="jZe-Uh-Re8"/>
                                     <constraint firstItem="JwX-My-hYP" firstAttribute="height" secondItem="Ejd-Vn-PzM" secondAttribute="height" id="kHs-oI-Zam"/>
                                     <constraint firstItem="pJj-Cf-iGN" firstAttribute="top" secondItem="Yl4-a7-rSK" secondAttribute="bottom" constant="2" id="m1C-c0-DSX"/>
                                     <constraint firstItem="LyN-Jq-yhf" firstAttribute="width" secondItem="Ejd-Vn-PzM" secondAttribute="width" id="mss-RK-9hQ"/>
@@ -7535,34 +7544,35 @@ Email: support@spotlightrc.com
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="CVW-Yn-fkc"/>
-                                        <exclude reference="yo6-6u-SV3"/>
                                         <exclude reference="HOw-KY-5aU"/>
                                         <exclude reference="JvS-Lu-V9r"/>
                                         <exclude reference="b46-ir-Lue"/>
+                                        <exclude reference="CVW-Yn-fkc"/>
+                                        <exclude reference="yo6-6u-SV3"/>
+                                        <exclude reference="XRH-7G-Jhw"/>
                                         <exclude reference="gvF-L5-hzY"/>
                                     </mask>
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cq-n9-os0">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-Ss-a9h">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7dI-Pg-KZh">
-                                        <rect key="frame" x="48" y="82" width="225.5" height="385"/>
+                                        <rect key="frame" x="56" y="97" width="264" height="454"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5p-xM-vDb">
-                                        <rect key="frame" x="48" y="477" width="91.5" height="30"/>
+                                        <rect key="frame" x="56" y="561" width="106.5" height="30"/>
                                         <state key="normal" title="Save "/>
                                         <connections>
                                             <action selector="pictureSavePressed:" destination="X0t-V5-Gqe" eventType="touchUpInside" id="tPK-7d-fFc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aE4-5t-P3t">
-                                        <rect key="frame" x="181" y="477" width="92" height="30"/>
+                                        <rect key="frame" x="213" y="561" width="107" height="30"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
                                             <action selector="pictureCancelPressed:" destination="X0t-V5-Gqe" eventType="touchUpInside" id="21j-mB-cOU"/>
@@ -7589,7 +7599,7 @@ Email: support@spotlightrc.com
                                 </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYw-zT-500">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="barTintColor" red="0.1215686275" green="0.17254901959999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -7627,7 +7637,7 @@ Email: support@spotlightrc.com
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyR-YJ-u6X" userLabel="customTopbar">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fn5-e2-Muz">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="44"/>
@@ -7644,7 +7654,7 @@ Email: support@spotlightrc.com
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEg-rN-Poz">
                                         <rect key="frame" x="65" y="0.0" width="45" height="44"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                         <state key="normal" title="ADD">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -7665,13 +7675,13 @@ Email: support@spotlightrc.com
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn-line.png" translatesAutoresizingMaskIntoConstraints="NO" id="P39-pn-7kA">
-                                        <rect key="frame" x="256" y="6" width="10" height="32"/>
+                                        <rect key="frame" x="311" y="6" width="10" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="10" id="adq-qa-DcB"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vip-11-Jca">
-                                        <rect key="frame" x="115" y="0.0" width="153" height="44"/>
+                                        <rect key="frame" x="115" y="0.0" width="208" height="44"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                         <state key="normal" title="REQUEST VIDEO">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -7681,7 +7691,7 @@ Email: support@spotlightrc.com
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2q-av-hCB">
-                                        <rect key="frame" x="268" y="0.0" width="50" height="44"/>
+                                        <rect key="frame" x="323" y="0.0" width="50" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="cDk-TC-igF"/>
                                         </constraints>
@@ -7694,7 +7704,7 @@ Email: support@spotlightrc.com
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-gG-QnW">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -7744,10 +7754,10 @@ Email: support@spotlightrc.com
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A40-vQ-cZm">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDL-gf-8Rc" customClass="QBRTCRemoteVideoView">
-                                        <rect key="frame" x="-114" y="0.0" width="548" height="548"/>
+                                        <rect key="frame" x="-136" y="0.0" width="647" height="647"/>
                                         <color key="backgroundColor" red="0.072717374560000006" green="0.1053203919" blue="0.2272011689" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="NDL-gf-8Rc" secondAttribute="height" id="Ymj-4o-waD"/>
@@ -7760,14 +7770,14 @@ Email: support@spotlightrc.com
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj4-yv-N3d">
-                                        <rect key="frame" x="10" y="364" width="97.5" height="130"/>
+                                        <rect key="frame" x="10" y="441" width="114" height="152"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pj4-yv-N3d" secondAttribute="height" multiplier="3:4" id="YQQ-Fa-WqZ"/>
                                         </constraints>
                                     </view>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIj-p6-M18">
-                                        <rect key="frame" x="0.0" y="504" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="sfX-CS-8zT"/>
                                         </constraints>
@@ -7795,7 +7805,7 @@ Email: support@spotlightrc.com
                                         </items>
                                     </navigationBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0p2-Mb-lVL">
-                                        <rect key="frame" x="0.0" y="504" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwC-nN-enw">
                                                 <rect key="frame" x="5" y="1" width="42" height="41"/>
@@ -7822,7 +7832,7 @@ Email: support@spotlightrc.com
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn-line.png" translatesAutoresizingMaskIntoConstraints="NO" id="uO4-l7-YwT">
-                                                <rect key="frame" x="170" y="6" width="10" height="32"/>
+                                                <rect key="frame" x="225" y="6" width="10" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="10" id="jTK-mp-wQC"/>
                                                 </constraints>
@@ -7853,7 +7863,7 @@ Email: support@spotlightrc.com
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWa-HL-gIM">
-                                                <rect key="frame" x="220" y="0.0" width="100" height="44"/>
+                                                <rect key="frame" x="275" y="0.0" width="100" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="NEXT">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -7932,47 +7942,47 @@ Email: support@spotlightrc.com
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9io-u6-81g" userLabel="CallReceived">
-                                <rect key="frame" x="0.0" y="242" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="284" width="375" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-gradient-notifications.png" translatesAutoresizingMaskIntoConstraints="NO" id="1lJ-Iu-nyN">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Received a Video Call From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCm-Vr-HUg">
-                                        <rect key="frame" x="83" y="10" width="226.5" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Received a Video Call From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCm-Vr-HUg">
+                                        <rect key="frame" x="95" y="10" width="270" height="25"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aqib Bangash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvb-Gh-mOP">
-                                        <rect key="frame" x="83" y="33" width="226.5" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Aqib Bangash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvb-Gh-mOP">
+                                        <rect key="frame" x="95" y="38" width="270" height="25"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-female.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-4l-1Io">
-                                        <rect key="frame" x="5" y="8" width="68.5" height="69"/>
+                                        <rect key="frame" x="5" y="9" width="80" height="81"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZGG-4l-1Io" secondAttribute="height" multiplier="1:1" id="yPi-Hh-OC2"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueS-D1-sPe" customClass="PASImageView" customModule="Spotlight" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="8" width="68.5" height="69"/>
+                                        <rect key="frame" x="5" y="9" width="80" height="81"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyr-PP-LWW">
-                                        <rect key="frame" x="100" y="49" width="180" height="1"/>
+                                        <rect key="frame" x="135" y="59" width="200" height="1"/>
                                         <color key="backgroundColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="hIh-yd-Ral"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZg-3R-pMR">
-                                        <rect key="frame" x="200" y="55" width="80" height="30"/>
+                                        <rect key="frame" x="245" y="65" width="90" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="At9-dw-hlg"/>
+                                            <constraint firstAttribute="width" constant="90" id="At9-dw-hlg"/>
                                             <constraint firstAttribute="height" constant="30" id="yVl-3s-IJH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Accept">
                                             <color key="titleColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -7982,8 +7992,8 @@ Email: support@spotlightrc.com
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htm-3q-ZWb">
-                                        <rect key="frame" x="100" y="55" width="80" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <rect key="frame" x="135" y="65" width="90" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Reject">
                                             <color key="titleColor" red="0.90196078430000004" green="0.1176470588" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -8012,8 +8022,10 @@ Email: support@spotlightrc.com
                                     <constraint firstAttribute="trailing" secondItem="pZg-3R-pMR" secondAttribute="trailing" constant="40" id="KJG-2m-LL5"/>
                                     <constraint firstItem="nvb-Gh-mOP" firstAttribute="height" secondItem="PCm-Vr-HUg" secondAttribute="height" id="LAv-hD-HlS"/>
                                     <constraint firstAttribute="height" constant="90" id="LWW-Sd-1yi"/>
+                                    <constraint firstAttribute="bottom" secondItem="pZg-3R-pMR" secondAttribute="bottom" constant="5" id="LtZ-ox-qWU"/>
                                     <constraint firstItem="1lJ-Iu-nyN" firstAttribute="centerY" secondItem="9io-u6-81g" secondAttribute="centerY" id="O8Q-9P-ab9"/>
                                     <constraint firstAttribute="width" secondItem="9io-u6-81g" secondAttribute="height" multiplier="301:80" id="OKG-ue-eLN"/>
+                                    <constraint firstItem="cyr-PP-LWW" firstAttribute="top" secondItem="nvb-Gh-mOP" secondAttribute="bottom" constant="-4" id="Ptf-gb-rIV"/>
                                     <constraint firstItem="nvb-Gh-mOP" firstAttribute="width" secondItem="PCm-Vr-HUg" secondAttribute="width" id="Qbj-N6-INB"/>
                                     <constraint firstItem="htm-3q-ZWb" firstAttribute="centerY" secondItem="pZg-3R-pMR" secondAttribute="centerY" id="Rdf-Cp-aMA"/>
                                     <constraint firstItem="1lJ-Iu-nyN" firstAttribute="width" secondItem="9io-u6-81g" secondAttribute="width" id="RlL-ks-lhQ"/>
@@ -8025,9 +8037,11 @@ Email: support@spotlightrc.com
                                     <constraint firstItem="htm-3q-ZWb" firstAttribute="width" secondItem="pZg-3R-pMR" secondAttribute="width" id="aRh-Rm-iB5"/>
                                     <constraint firstItem="ZGG-4l-1Io" firstAttribute="leading" secondItem="9io-u6-81g" secondAttribute="leading" constant="5" id="cki-sY-n6V"/>
                                     <constraint firstAttribute="trailing" secondItem="htm-3q-ZWb" secondAttribute="trailing" constant="4" id="g5f-H3-eRO"/>
+                                    <constraint firstItem="nvb-Gh-mOP" firstAttribute="centerX" secondItem="cyr-PP-LWW" secondAttribute="centerX" id="iOP-qZ-zGg"/>
                                     <constraint firstAttribute="trailing" secondItem="htm-3q-ZWb" secondAttribute="trailing" constant="30" id="kRp-Jd-X2A"/>
                                     <constraint firstItem="nvb-Gh-mOP" firstAttribute="top" secondItem="PCm-Vr-HUg" secondAttribute="bottom" constant="3" id="knd-7c-QAV"/>
                                     <constraint firstItem="ZGG-4l-1Io" firstAttribute="height" secondItem="9io-u6-81g" secondAttribute="height" multiplier="0.8" constant="1" id="oQD-5U-nIG"/>
+                                    <constraint firstItem="PCm-Vr-HUg" firstAttribute="centerX" secondItem="nvb-Gh-mOP" secondAttribute="centerX" id="p1v-fT-8sy"/>
                                     <constraint firstItem="htm-3q-ZWb" firstAttribute="height" secondItem="pZg-3R-pMR" secondAttribute="height" id="t5R-h6-ay2"/>
                                     <constraint firstItem="ueS-D1-sPe" firstAttribute="centerY" secondItem="ZGG-4l-1Io" secondAttribute="centerY" id="xfN-UO-smr"/>
                                     <constraint firstItem="PCm-Vr-HUg" firstAttribute="top" secondItem="9io-u6-81g" secondAttribute="top" constant="10" id="xvz-b4-vEZ"/>
@@ -8038,28 +8052,31 @@ Email: support@spotlightrc.com
                                     <mask key="constraints">
                                         <exclude reference="LWW-Sd-1yi"/>
                                         <exclude reference="0Fb-hq-0PS"/>
+                                        <exclude reference="2uJ-7g-5nt"/>
                                         <exclude reference="3YP-V3-pbV"/>
                                         <exclude reference="AU6-Si-aJP"/>
                                         <exclude reference="2JQ-nH-NrN"/>
                                         <exclude reference="51K-PX-Zio"/>
+                                        <exclude reference="WAS-vs-sul"/>
                                         <exclude reference="Wru-wp-pWd"/>
                                         <exclude reference="g5f-H3-eRO"/>
                                         <exclude reference="kRp-Jd-X2A"/>
                                         <exclude reference="DOB-U7-3QL"/>
+                                        <exclude reference="yko-3a-wdK"/>
                                     </mask>
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojF-oI-fwS" userLabel="CallReceived">
-                                <rect key="frame" x="-1" y="206.5" width="321" height="156"/>
+                                <rect key="frame" x="-1" y="242.5" width="376" height="182"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Received a Video Call From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gro-Mx-eF9">
-                                        <rect key="frame" x="0.0" y="20" width="321" height="23"/>
+                                        <rect key="frame" x="0.0" y="20" width="376" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aqib Bangash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNS-rn-i6v">
-                                        <rect key="frame" x="0.0" y="48" width="321" height="23"/>
+                                        <rect key="frame" x="0.0" y="48" width="376" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -8076,7 +8093,7 @@ Email: support@spotlightrc.com
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-qn-rWK">
-                                        <rect key="frame" x="209" y="91" width="82" height="30"/>
+                                        <rect key="frame" x="264" y="91" width="82" height="30"/>
                                         <state key="normal" title="Reject"/>
                                         <connections>
                                             <action selector="rejectCall:" destination="X0t-V5-Gqe" eventType="touchUpInside" id="Zca-qz-Cqu"/>
@@ -8110,13 +8127,13 @@ Email: support@spotlightrc.com
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZk-k8-tzI">
-                                <rect key="frame" x="0.0" y="242" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="284" width="375" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-gradient-notifications.png" translatesAutoresizingMaskIntoConstraints="NO" id="5gx-pY-jGW">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGS-NS-v4f">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="21"/>
+                                        <rect key="frame" x="0.0" y="10" width="375" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="UYO-QY-O3f"/>
                                         </constraints>
@@ -8125,7 +8142,7 @@ Email: support@spotlightrc.com
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for the authentication..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmY-jQ-MAZ">
-                                        <rect key="frame" x="0.0" y="38" width="320" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="38" width="375" height="32.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -8147,10 +8164,10 @@ Email: support@spotlightrc.com
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyd-M9-ceV" userLabel="Waiting">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-HG-Uyy">
-                                        <rect key="frame" x="-104.5" y="-90" width="208.5" height="81"/>
+                                        <rect key="frame" x="0.0" y="-54" width="209" height="13"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Waiting for someone to join" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N13-JK-eeG">
                                                 <rect key="frame" x="0.0" y="20" width="208.5" height="21"/>
@@ -8168,7 +8185,7 @@ Email: support@spotlightrc.com
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGe-FB-z91">
-                                                <rect key="frame" x="0.0" y="90" width="105.5" height="21"/>
+                                                <rect key="frame" x="0.5" y="90" width="105" height="21"/>
                                                 <state key="normal" title="Retry"/>
                                                 <connections>
                                                     <action selector="retryWaitingPressed:" destination="X0t-V5-Gqe" eventType="touchUpInside" id="N3i-Dq-Iqk"/>
@@ -8210,7 +8227,7 @@ Email: support@spotlightrc.com
                                         </variation>
                                     </view>
                                     <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qD-Xn-NLH">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" red="0.1215686275" green="0.17254901959999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
@@ -8222,13 +8239,13 @@ Email: support@spotlightrc.com
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nx-c2-JZZ">
-                                <rect key="frame" x="0.0" y="242" width="320" height="85"/>
+                                <rect key="frame" x="0.0" y="284" width="375" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-gradient-notifications.png" translatesAutoresizingMaskIntoConstraints="NO" id="bJe-Bp-fSI">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Request received" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mil-k3-r25">
-                                        <rect key="frame" x="0.0" y="5" width="320" height="21"/>
+                                        <rect key="frame" x="0.0" y="5" width="375" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Qlh-Ey-oPt"/>
                                         </constraints>
@@ -8237,20 +8254,20 @@ Email: support@spotlightrc.com
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fk5-k4-VfO">
-                                        <rect key="frame" x="0.0" y="33" width="320" height="21"/>
+                                        <rect key="frame" x="0.0" y="33" width="375" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Nz-4x-A42">
-                                        <rect key="frame" x="16" y="57" width="288" height="1"/>
+                                        <rect key="frame" x="19" y="57" width="337.5" height="1"/>
                                         <color key="backgroundColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Ld2-np-hfK"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDR-sj-kqI">
-                                        <rect key="frame" x="159" y="60" width="161" height="21"/>
+                                        <rect key="frame" x="186" y="60" width="188.5" height="21"/>
                                         <state key="normal" title="Accept">
                                             <color key="titleColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -8259,7 +8276,7 @@ Email: support@spotlightrc.com
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N41-EK-iGV">
-                                        <rect key="frame" x="8" y="60" width="161" height="21"/>
+                                        <rect key="frame" x="7" y="60" width="189" height="21"/>
                                         <state key="normal" title="Reject">
                                             <color key="titleColor" red="0.90196078430000004" green="0.1176470588" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -8303,26 +8320,26 @@ Email: support@spotlightrc.com
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YjM-tP-Hov">
-                                <rect key="frame" x="31" y="85.5" width="257" height="342"/>
+                                <rect key="frame" x="37" y="100" width="301" height="402"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fof-7Z-6k9">
-                                        <rect key="frame" x="77" y="10" width="104" height="103.5"/>
+                                        <rect key="frame" x="90" y="10" width="122" height="121"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fof-7Z-6k9" secondAttribute="height" multiplier="1:1" constant="1" id="egY-ny-nw6"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dir-yC-HEh" customClass="PASImageView" customModule="Spotlight" customModuleProvider="target">
-                                        <rect key="frame" x="77" y="10" width="104" height="103.5"/>
+                                        <rect key="frame" x="90" y="10" width="122" height="121"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gfp-8b-35Y">
-                                        <rect key="frame" x="14" y="10" width="230" height="103.5"/>
+                                        <rect key="frame" x="16" y="10" width="269" height="121"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVs-u3-G1R" customClass="PASImageView" customModule="Spotlight" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="0.0" width="93" height="103.5"/>
+                                                <rect key="frame" x="10" y="0.0" width="108.5" height="121"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJb-j8-0m5" customClass="UIImageView">
-                                                <rect key="frame" x="127" y="0.0" width="93" height="103.5"/>
+                                                <rect key="frame" x="150" y="0.0" width="108.5" height="121"/>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -8337,7 +8354,7 @@ Email: support@spotlightrc.com
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brandon Bass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHt-zg-XeO">
-                                        <rect key="frame" x="0.0" y="123" width="257" height="21"/>
+                                        <rect key="frame" x="0.0" y="141" width="301" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="jo4-to-aa4"/>
                                         </constraints>
@@ -8346,16 +8363,16 @@ Email: support@spotlightrc.com
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jO9-f8-NrE">
-                                        <rect key="frame" x="0.0" y="122" width="257" height="70"/>
+                                        <rect key="frame" x="0.0" y="182" width="301" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlh-zo-HqP">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="70"/>
+                                                <rect key="frame" x="29" y="0.0" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="male" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTm-Gd-5ca">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="70"/>
+                                                <rect key="frame" x="29" y="0.0" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -8375,16 +8392,16 @@ Email: support@spotlightrc.com
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLs-B2-yw9">
-                                        <rect key="frame" x="0.0" y="197" width="257" height="70"/>
+                                        <rect key="frame" x="0.0" y="257" width="301" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMn-fK-EB4">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="70"/>
+                                                <rect key="frame" x="29" y="0.0" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izB-of-9uA">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="70"/>
+                                                <rect key="frame" x="29" y="0.0" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -8404,10 +8421,10 @@ Email: support@spotlightrc.com
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ac3-BC-gv2">
-                                        <rect key="frame" x="0.0" y="272" width="257" height="70"/>
+                                        <rect key="frame" x="0.0" y="332" width="301" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USA Los Angeles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahf-1v-ocN">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="70"/>
+                                                <rect key="frame" x="29" y="0.0" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -8467,13 +8484,13 @@ Email: support@spotlightrc.com
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqR-50-wvm">
-                                <rect key="frame" x="0.0" y="226.5" width="320" height="96"/>
+                                <rect key="frame" x="0.0" y="273" width="375" height="112"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-gradient-notifications.png" translatesAutoresizingMaskIntoConstraints="NO" id="pda-bF-8Ce">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to report this user?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wki-xV-XDH">
-                                        <rect key="frame" x="31" y="5" width="257" height="50"/>
+                                        <rect key="frame" x="37" y="5" width="301" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="1Zp-OH-2Ya"/>
                                         </constraints>
@@ -8482,15 +8499,15 @@ Email: support@spotlightrc.com
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCC-s8-ciy">
-                                        <rect key="frame" x="32" y="60" width="256" height="1"/>
+                                        <rect key="frame" x="37" y="62" width="300" height="1"/>
                                         <color key="backgroundColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="OrC-CS-fh5"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrP-5d-mZP">
-                                        <rect key="frame" x="191" y="63" width="129" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="224" y="63" width="151" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Report">
                                             <color key="titleColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -8500,8 +8517,8 @@ Email: support@spotlightrc.com
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLh-uX-Jmr">
-                                        <rect key="frame" x="0.0" y="63" width="129" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="63" width="151" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" red="0.90196078430000004" green="0.1176470588" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -8518,6 +8535,7 @@ Email: support@spotlightrc.com
                                     <constraint firstItem="wki-xV-XDH" firstAttribute="top" secondItem="CqR-50-wvm" secondAttribute="top" constant="5" id="6YJ-Po-oEP"/>
                                     <constraint firstItem="pda-bF-8Ce" firstAttribute="height" secondItem="CqR-50-wvm" secondAttribute="height" id="CW9-Gm-lbX"/>
                                     <constraint firstItem="pda-bF-8Ce" firstAttribute="centerX" secondItem="CqR-50-wvm" secondAttribute="centerX" id="Ch2-cl-G1a"/>
+                                    <constraint firstAttribute="bottom" secondItem="YrP-5d-mZP" secondAttribute="bottom" id="Ctd-8a-iqa"/>
                                     <constraint firstItem="RCC-s8-ciy" firstAttribute="width" secondItem="CqR-50-wvm" secondAttribute="width" multiplier="0.8" id="D2u-eV-6vp"/>
                                     <constraint firstItem="YrP-5d-mZP" firstAttribute="top" secondItem="wki-xV-XDH" secondAttribute="bottom" constant="8" id="Fg0-iB-tWX"/>
                                     <constraint firstItem="RCC-s8-ciy" firstAttribute="centerX" secondItem="CqR-50-wvm" secondAttribute="centerX" id="GC9-LQ-abH"/>
@@ -8532,7 +8550,7 @@ Email: support@spotlightrc.com
                                     <constraint firstItem="YrP-5d-mZP" firstAttribute="leading" secondItem="CqR-50-wvm" secondAttribute="leading" id="gV3-hA-Wyv"/>
                                     <constraint firstItem="bLh-uX-Jmr" firstAttribute="leading" secondItem="CqR-50-wvm" secondAttribute="leading" id="hqC-ds-n1U"/>
                                     <constraint firstItem="YrP-5d-mZP" firstAttribute="width" secondItem="CqR-50-wvm" secondAttribute="width" multiplier="0.4" constant="1" id="jM4-bf-ddk"/>
-                                    <constraint firstItem="YrP-5d-mZP" firstAttribute="top" secondItem="RCC-s8-ciy" secondAttribute="bottom" constant="2" id="lhz-y5-xfO"/>
+                                    <constraint firstItem="YrP-5d-mZP" firstAttribute="top" secondItem="RCC-s8-ciy" secondAttribute="bottom" id="lhz-y5-xfO"/>
                                     <constraint firstAttribute="trailing" secondItem="YrP-5d-mZP" secondAttribute="trailing" id="wMP-lU-6iA"/>
                                 </constraints>
                                 <variation key="default">
@@ -8544,13 +8562,13 @@ Email: support@spotlightrc.com
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aco-F6-Sb4">
-                                <rect key="frame" x="0.0" y="226.5" width="320" height="115"/>
+                                <rect key="frame" x="0.0" y="273" width="375" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-gradient-notifications.png" translatesAutoresizingMaskIntoConstraints="NO" id="5yl-Te-SK4">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to next this person?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8y-xc-sgj">
-                                        <rect key="frame" x="32" y="0.0" width="256" height="79"/>
+                                        <rect key="frame" x="37" y="10" width="300" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="4Bz-aQ-n3l"/>
                                         </constraints>
@@ -8564,18 +8582,18 @@ Email: support@spotlightrc.com
                                         </variation>
                                     </label>
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dg-vb-lwI">
-                                        <rect key="frame" x="32" y="79" width="256" height="1"/>
+                                        <rect key="frame" x="37" y="74" width="300" height="1"/>
                                         <color key="backgroundColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="PEP-zI-hJb"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzH-pq-rqZ">
-                                        <rect key="frame" x="191" y="80" width="129" height="30"/>
+                                        <rect key="frame" x="224" y="75" width="151" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="TbU-j0-QHo"/>
+                                            <constraint firstAttribute="height" constant="40" id="TbU-j0-QHo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Yes">
                                             <color key="titleColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -8584,8 +8602,8 @@ Email: support@spotlightrc.com
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um5-5W-iOb">
-                                        <rect key="frame" x="0.0" y="80" width="129" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="151" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="No">
                                             <color key="titleColor" red="0.90196078430000004" green="0.1176470588" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -8600,7 +8618,7 @@ Email: support@spotlightrc.com
                                     <constraint firstItem="WzH-pq-rqZ" firstAttribute="top" secondItem="3dg-vb-lwI" secondAttribute="bottom" id="8Xg-Eu-vPA"/>
                                     <constraint firstItem="Q8y-xc-sgj" firstAttribute="centerX" secondItem="aco-F6-Sb4" secondAttribute="centerX" id="FYK-Tc-XEg"/>
                                     <constraint firstAttribute="bottom" secondItem="WzH-pq-rqZ" secondAttribute="bottom" constant="5" id="GhA-gz-ofZ"/>
-                                    <constraint firstItem="3dg-vb-lwI" firstAttribute="top" secondItem="Q8y-xc-sgj" secondAttribute="bottom" id="KO7-oW-mOz"/>
+                                    <constraint firstItem="3dg-vb-lwI" firstAttribute="top" secondItem="Q8y-xc-sgj" secondAttribute="bottom" constant="10" id="KO7-oW-mOz"/>
                                     <constraint firstItem="5yl-Te-SK4" firstAttribute="width" secondItem="aco-F6-Sb4" secondAttribute="width" id="N06-Xt-kkE"/>
                                     <constraint firstItem="3dg-vb-lwI" firstAttribute="top" secondItem="Q8y-xc-sgj" secondAttribute="bottom" id="Rvi-Ux-kpQ"/>
                                     <constraint firstItem="3dg-vb-lwI" firstAttribute="centerX" secondItem="aco-F6-Sb4" secondAttribute="centerX" id="Sg4-7p-Tt4"/>
@@ -8610,7 +8628,8 @@ Email: support@spotlightrc.com
                                     <constraint firstItem="5yl-Te-SK4" firstAttribute="centerX" secondItem="aco-F6-Sb4" secondAttribute="centerX" id="jXu-3D-6ZV"/>
                                     <constraint firstItem="5yl-Te-SK4" firstAttribute="centerY" secondItem="aco-F6-Sb4" secondAttribute="centerY" id="nNi-RV-rcp"/>
                                     <constraint firstItem="3dg-vb-lwI" firstAttribute="top" secondItem="Q8y-xc-sgj" secondAttribute="bottom" id="qrd-6q-bgW"/>
-                                    <constraint firstItem="Q8y-xc-sgj" firstAttribute="top" secondItem="aco-F6-Sb4" secondAttribute="top" id="wJW-mb-gTM"/>
+                                    <constraint firstAttribute="height" constant="120" id="uF4-Q9-HFz"/>
+                                    <constraint firstItem="Q8y-xc-sgj" firstAttribute="top" secondItem="aco-F6-Sb4" secondAttribute="top" constant="10" id="wJW-mb-gTM"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -8620,10 +8639,10 @@ Email: support@spotlightrc.com
                                 </variation>
                             </view>
                             <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.97999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-leftuser.png" translatesAutoresizingMaskIntoConstraints="NO" id="H2I-Yo-7as">
-                                <rect key="frame" x="48" y="140" width="225" height="60"/>
+                                <rect key="frame" x="56" y="170" width="264" height="60"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User has left the room" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDq-xO-dXw">
-                                <rect key="frame" x="48" y="140" width="225" height="60"/>
+                                <rect key="frame" x="56" y="170" width="264" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Wfn-wA-5FC"/>
@@ -8633,18 +8652,18 @@ Email: support@spotlightrc.com
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BqO-PT-FtY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TaF-Sm-WGs">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="joY-EU-F4h">
-                                        <rect key="frame" x="32" y="56" width="256" height="455"/>
+                                        <rect key="frame" x="37" y="66" width="300" height="534"/>
                                         <color key="backgroundColor" red="0.1333333333" green="0.1843137255" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfY-Q8-Z7E">
-                                        <rect key="frame" x="0.0" y="518" width="160" height="50"/>
+                                        <rect key="frame" x="0.0" y="617" width="187.5" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="bti-h6-dxe"/>
                                         </constraints>
@@ -8657,7 +8676,7 @@ Email: support@spotlightrc.com
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlE-xs-fJx">
-                                        <rect key="frame" x="160" y="518" width="160" height="50"/>
+                                        <rect key="frame" x="187" y="617" width="187.5" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Close">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -8687,39 +8706,39 @@ Email: support@spotlightrc.com
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhl-Gh-ZgA">
-                                <rect key="frame" x="31" y="85.5" width="257" height="342"/>
+                                <rect key="frame" x="37" y="100" width="301" height="402"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="39s-rx-cNG">
-                                        <rect key="frame" x="77" y="10" width="104" height="103.5"/>
+                                        <rect key="frame" x="90" y="10" width="122" height="121"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="39s-rx-cNG" secondAttribute="height" multiplier="1:1" constant="1" id="w3q-at-SKE"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMg-gr-Qnm" customClass="PASImageView" customModule="Spotlight" customModuleProvider="target">
-                                        <rect key="frame" x="77" y="10" width="104" height="103.5"/>
+                                        <rect key="frame" x="90" y="10" width="122" height="121"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7OY-6A-OYU">
-                                        <rect key="frame" x="14" y="10" width="230" height="103.5"/>
+                                        <rect key="frame" x="16" y="10" width="269" height="121"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1J-7L-HjX" customClass="PASImageView" customModule="Spotlight" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="6" width="93" height="92"/>
+                                                <rect key="frame" x="10" y="7" width="108.5" height="107.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="o1J-7L-HjX" secondAttribute="height" multiplier="1:1" constant="1" id="3HX-xv-UMx"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eH-ji-BBf" customClass="UIImageView">
-                                                <rect key="frame" x="127" y="6" width="93" height="92"/>
+                                                <rect key="frame" x="150" y="7" width="108.5" height="107.5"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Av5-P4-U0J">
-                                                <rect key="frame" x="126" y="5" width="95.5" height="95"/>
+                                                <rect key="frame" x="149" y="5" width="111.5" height="111"/>
                                                 <color key="backgroundColor" red="0.098039215690000001" green="0.50980392159999999" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ro8-Mt-Ziz" customClass="LoopingVideoView" customModule="Spotlight" customModuleProvider="target">
-                                                <rect key="frame" x="127" y="6" width="93" height="92"/>
+                                                <rect key="frame" x="150" y="7" width="108.5" height="107.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vipvip.png" translatesAutoresizingMaskIntoConstraints="NO" id="oxl-Rq-HFR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="93" height="92"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="108.5" height="107.5"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -8760,7 +8779,7 @@ Email: support@spotlightrc.com
                                         </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brandon Bass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3G-aE-Tzp">
-                                        <rect key="frame" x="0.0" y="123" width="257" height="21"/>
+                                        <rect key="frame" x="0.0" y="141" width="301" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="gJ4-R0-TIC"/>
                                         </constraints>
@@ -8768,23 +8787,23 @@ Email: support@spotlightrc.com
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ymC-bK-ftE">
-                                        <rect key="frame" x="0.0" y="153" width="257" height="60"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymC-bK-ftE">
+                                        <rect key="frame" x="0.0" y="182" width="301" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPX-9k-aiR">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="60"/>
+                                                <rect key="frame" x="29" y="0.0" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="male" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7q-vY-DjX">
-                                                <rect key="frame" x="153" y="0.5" width="84" height="60.5"/>
+                                                <rect key="frame" x="183" y="0.5" width="98" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qeI-Ue-nBm">
-                                                <rect key="frame" x="135.5" y="11.5" width="37.5" height="38"/>
+                                                <rect key="frame" x="159.5" y="13.5" width="43.5" height="43"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="qeI-Ue-nBm" secondAttribute="height" multiplier="1:1" id="I2o-lF-Ib6"/>
                                                 </constraints>
@@ -8814,17 +8833,17 @@ Email: support@spotlightrc.com
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgi-FT-5cx">
-                                        <rect key="frame" x="0.0" y="218.5" width="257" height="59"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgi-FT-5cx">
+                                        <rect key="frame" x="0.0" y="257" width="301" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYu-GL-Obm">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="60"/>
+                                                <rect key="frame" x="29" y="0.0" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohj-6k-FAc">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="60"/>
+                                                <rect key="frame" x="29" y="0.0" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -8848,11 +8867,11 @@ Email: support@spotlightrc.com
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKA-nJ-bvc">
-                                        <rect key="frame" x="0.0" y="282.5" width="257" height="59.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKA-nJ-bvc">
+                                        <rect key="frame" x="0.0" y="332" width="301" height="70"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="USA Los Angeles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-Fp-TFx">
-                                                <rect key="frame" x="25" y="0.0" width="207" height="59.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USA Los Angeles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-Fp-TFx">
+                                                <rect key="frame" x="29" y="0.5" width="242" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -8953,7 +8972,7 @@ Email: support@spotlightrc.com
                             <constraint firstItem="CqR-50-wvm" firstAttribute="centerX" secondItem="9Nx-c2-JZZ" secondAttribute="centerX" id="JKf-qN-pbs"/>
                             <constraint firstItem="yYw-zT-500" firstAttribute="centerX" secondItem="a42-oP-vYY" secondAttribute="centerX" id="Kjc-Y6-xB4"/>
                             <constraint firstItem="gqM-jO-QV0" firstAttribute="top" secondItem="XyR-YJ-u6X" secondAttribute="bottom" id="LM9-6t-yhw"/>
-                            <constraint firstItem="Yl4-a7-rSK" firstAttribute="top" secondItem="XyR-YJ-u6X" secondAttribute="bottom" constant="10" id="MTE-J9-T4Q"/>
+                            <constraint firstItem="Yl4-a7-rSK" firstAttribute="top" secondItem="XyR-YJ-u6X" secondAttribute="bottom" constant="5" id="MTE-J9-T4Q"/>
                             <constraint firstItem="CqR-50-wvm" firstAttribute="width" secondItem="9Nx-c2-JZZ" secondAttribute="width" id="MZb-2Z-3X8"/>
                             <constraint firstItem="3x9-HG-Uyy" firstAttribute="width" secondItem="9Nx-c2-JZZ" secondAttribute="width" id="Mi5-mS-zAQ"/>
                             <constraint firstItem="ojF-oI-fwS" firstAttribute="centerX" secondItem="a42-oP-vYY" secondAttribute="centerX" id="O9I-CR-OVs"/>
@@ -9028,12 +9047,14 @@ Email: support@spotlightrc.com
                                 <exclude reference="VKH-eb-f8H"/>
                                 <exclude reference="cKP-9g-ywO"/>
                                 <exclude reference="n9P-qf-ifh"/>
+                                <exclude reference="UuK-Wj-uuf"/>
                                 <exclude reference="6fn-RG-dhg"/>
-                                <exclude reference="WaQ-Z4-PUQ"/>
+                                <exclude reference="mG8-9l-OmD"/>
                                 <exclude reference="Xaz-Ee-HXy"/>
                                 <exclude reference="nuQ-Iu-omW"/>
+                                <exclude reference="WaQ-Z4-PUQ"/>
                                 <exclude reference="qQj-au-CKB"/>
-                                <exclude reference="UuK-Wj-uuf"/>
+                                <exclude reference="nRR-64-va1"/>
                                 <exclude reference="xPi-7h-Cy2"/>
                                 <exclude reference="ANF-ZD-LVL"/>
                             </mask>
@@ -9043,7 +9064,7 @@ Email: support@spotlightrc.com
                     <navigationItem key="navigationItem" id="lGd-L0-Z5R"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="ad" destination="Rv8-Be-Zpf" id="Ldi-cI-rSS"/>
                         <outlet property="addBarButton" destination="XvR-kd-Mxq" id="h0Q-EZ-z5l"/>
@@ -11942,7 +11963,6 @@ Email: support@spotlightrc.com
         <image name="bg-leftuser.png" width="10" height="500"/>
         <image name="bg-loadinggif" width="842" height="1496"/>
         <image name="bg-long.png" width="842" height="1496"/>
-        <image name="bg-showInfo.png" width="1000" height="56"/>
         <image name="btn-bg-gradient.png" width="10" height="165"/>
         <image name="btn-fb.png" width="74" height="74"/>
         <image name="btn-female.png" width="116" height="192"/>
@@ -11980,15 +12000,15 @@ Email: support@spotlightrc.com
         <image name="vipvip.png" width="760" height="730"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3os-1e-yFf"/>
         <segue reference="DNy-xh-CDY"/>
         <segue reference="h4p-ch-iXL"/>
         <segue reference="6XI-Vc-4ye"/>
         <segue reference="TQ1-3e-Vjc"/>
         <segue reference="Ibt-BW-xiC"/>
+        <segue reference="yYs-cd-Eil"/>
         <segue reference="DKg-A6-hDY"/>
-        <segue reference="475-Ht-WUo"/>
         <segue reference="hfw-6M-mhL"/>
-        <segue reference="HjC-sX-EFa"/>
+        <segue reference="475-Ht-WUo"/>
+        <segue reference="3os-1e-yFf"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -72,7 +72,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     var connectionFrom:String!
     
     @IBOutlet weak var btnVideoBtn: UIButton!
-    var startingY:CGFloat = 50
+    var startingY:CGFloat = 80
     var allImagesUrls:[String] = []
     var allChatPages:[QBResponsePage]!
     var mineStartingX:CGFloat = 30
@@ -665,7 +665,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         if (mediaStream != nil){
             mediaStream.videoTrack.videoCapture = capture
         } else{
-            GTToast.create("Problem with your video").show()
+            GTToast.create("*Problem with your video").show()
         }
         
     }
@@ -1060,7 +1060,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                 
                 
                 
-                
+                print ("Connectionfrom: \(self.currentConnectedUser)")
                 
                 if (self.connectionFrom == "Messages")
                 {
@@ -1168,6 +1168,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                 push.setMessage("\(self.name) sent you a message.")
                 push.sendPushInBackground()
                 
+                print ("*ConnFrom: \(self.connectionFrom)")
                 
                 
                 if (self.connectionFrom == "Messages")
@@ -2766,7 +2767,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             videoSendFormat = "\(videoSendFormat)VS (enc) %@/%@ | (sent) %@/%@ | %@ms | %@\n"
             
             
-            var s1 =  NSString(format: videoSendFormat,report.videoSendInputWidth, report.videoSendInputHeight, report.videoSendInputFps,
+            var s1 =  NSString(format: videoSendFormat, report.videoSendInputWidth, report.videoSendInputHeight, report.videoSendInputFps,
                                report.videoSendWidth, report.videoSendHeight, report.videoSendFps,
                                report.actualEncodingBitrate, report.targetEncodingBitrate,
                                report.videoSendBitrate, report.availableSendBandwidth,
@@ -2775,10 +2776,16 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             
             result = "\(result)\(s1)"
             
+            
+            
             var params1 = ["session": "\(self.connectionFrom.lowercaseString)-\(self.uniqueId)", "user":"\(self.userId)", "withUser":"\(self.currentConnectedUser)","time": self.printTimestamp(), "type":"sendStats", "personNumber":self.personNumber, "log":result]
             
-            FIRAnalytics.logEventWithName("VideoCall", parameters: params1 as! [String : NSObject])
+            //
             
+            //FIRAnalytics.logEventWithName("VideoCall", parameters: params1 as! [String : NSObject])
+            
+            
+           
             
             
             
@@ -2795,7 +2802,35 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             
             var params2 = ["session": "\(self.connectionFrom.lowercaseString)-\(self.uniqueId)", "user":"\(self.userId)", "withUser":"\(self.currentConnectedUser)","time": self.printTimestamp(), "type":"recStats", "personNumber":self.personNumber, "log":result]
             
-            FIRAnalytics.logEventWithName("VideoCall", parameters: params2 as! [String : NSObject])
+            
+            if (  (report.videoReceivedFps == "0" && !receivedLogs) || (report.videoSendInputFps == "0" && !sentLogs) ){
+                
+                if (report.videoReceivedFps == "0"){
+                    
+                    FIRAnalytics.logEventWithName("VideoCallReceiveFailed", parameters: ["type":self.connectionFrom])
+                    receivedLogs = true
+                    
+                }else{
+                    
+                    FIRAnalytics.logEventWithName("VideoCallSendFailed", parameters: ["type":self.connectionFrom] )
+                    sentLogs = true
+                }
+                
+                
+                
+            } else {
+                
+                FIRAnalytics.logEventWithName("VideoCallSuccessfull", parameters: ["type":self.connectionFrom])
+                receivedLogs = true
+                
+            }
+            
+            
+            
+            print ("*Logs Sent|Received:  \(sentLogs)|\(receivedLogs)")
+            
+            
+            //FIRAnalytics.logEventWithName("VideoCall", parameters: params2 as! [String : NSObject])
             
             
             
@@ -3522,7 +3557,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             self.makeDashVisible()
             
             
-            self.chatScrollView.contentSize = CGSizeMake(self.chatScrollView.frame.width, self.chatScrollView.frame.height)
+            self.chatScrollView.contentSize = CGSizeMake(self.view.frame.width, self.chatScrollView.frame.height)
             
         }
         

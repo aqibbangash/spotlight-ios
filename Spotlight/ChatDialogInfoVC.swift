@@ -369,6 +369,7 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             vc.connectionFrom = self.typeOfConvo.capitalizedString
             //print ("My Image: \(self.myImage)")
             vc.myImage = self.myImage
+            vc.personNumber = self.personNumber
             if (self.personNumber>6)
             {
                 vc.showAdd = true
