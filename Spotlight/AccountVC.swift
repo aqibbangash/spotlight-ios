@@ -263,7 +263,9 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBAction func updateYes(sender: UIButton) {
         
         self.updateInfoView.fadeOut()
-        self.performSegueWithIdentifier("updateInfo", sender: self)
+        //self.performSegueWithIdentifier("updateInfo", sender: self)
+        updateProfile(UIButton())
+        
         
     }
     

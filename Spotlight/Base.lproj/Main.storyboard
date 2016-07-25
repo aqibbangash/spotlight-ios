@@ -5169,10 +5169,10 @@ Email: support@spotlightrc.com
                                         <color key="backgroundColor" red="0.1333333333" green="0.1843137255" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6l-xD-Uwn">
-                                        <rect key="frame" x="-1" y="220" width="320.5" height="128"/>
+                                        <rect key="frame" x="-1" y="209" width="320.5" height="150"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-gradient-notifications.png" translatesAutoresizingMaskIntoConstraints="NO" id="8x8-Uj-5N2">
-                                                <rect key="frame" x="-1" y="0.0" width="321" height="128"/>
+                                                <rect key="frame" x="-1" y="0.0" width="321" height="150"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2.99 no ads and special icon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fd-ql-GLh">
                                                 <rect key="frame" x="32.5" y="10" width="256" height="50"/>
@@ -5183,8 +5183,18 @@ Email: support@spotlightrc.com
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bR-rz-4FF">
+                                                <rect key="frame" x="40" y="300" width="240" height="128"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="8UH-O2-ujy"/>
+                                                </constraints>
+                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGm-nO-U6L">
-                                                <rect key="frame" x="32.5" y="65" width="256" height="40"/>
+                                                <rect key="frame" x="32.5" y="70" width="256" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="475-6n-8wX"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                                                 <state key="normal" title="Purchase">
                                                     <color key="titleColor" red="0.26861528359999998" green="0.7049550939" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -5194,7 +5204,7 @@ Email: support@spotlightrc.com
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbe-49-gFj">
-                                                <rect key="frame" x="32.5" y="110" width="256" height="40"/>
+                                                <rect key="frame" x="32.5" y="105" width="256" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                                                 <state key="normal" title="Close">
                                                     <color key="titleColor" red="0.90196078430000004" green="0.1176470588" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -5209,10 +5219,13 @@ Email: support@spotlightrc.com
                                             <constraint firstItem="2Fd-ql-GLh" firstAttribute="top" secondItem="g6l-xD-Uwn" secondAttribute="top" constant="10" id="2vW-tA-izA"/>
                                             <constraint firstItem="8x8-Uj-5N2" firstAttribute="centerY" secondItem="g6l-xD-Uwn" secondAttribute="centerY" id="43S-KG-Jr5"/>
                                             <constraint firstItem="2Fd-ql-GLh" firstAttribute="width" secondItem="g6l-xD-Uwn" secondAttribute="width" multiplier="0.8" id="7zR-ZQ-czU"/>
-                                            <constraint firstAttribute="width" secondItem="g6l-xD-Uwn" secondAttribute="height" multiplier="15:6" id="CRM-40-0IE"/>
+                                            <constraint firstAttribute="width" secondItem="g6l-xD-Uwn" secondAttribute="height" multiplier="15:7" id="CRM-40-0IE"/>
                                             <constraint firstItem="Hbe-49-gFj" firstAttribute="height" secondItem="mGm-nO-U6L" secondAttribute="height" id="EW5-HY-NEr"/>
                                             <constraint firstAttribute="height" constant="140" id="EuN-cE-Fzc"/>
                                             <constraint firstItem="Hbe-49-gFj" firstAttribute="top" secondItem="mGm-nO-U6L" secondAttribute="bottom" constant="5" id="GML-Wk-SOc"/>
+                                            <constraint firstItem="9bR-rz-4FF" firstAttribute="top" secondItem="2Fd-ql-GLh" secondAttribute="bottom" constant="5" id="Hgr-wV-exy"/>
+                                            <constraint firstItem="9bR-rz-4FF" firstAttribute="width" secondItem="g6l-xD-Uwn" secondAttribute="width" multiplier="0.8" id="RSm-6L-QNv"/>
+                                            <constraint firstItem="9bR-rz-4FF" firstAttribute="centerX" secondItem="g6l-xD-Uwn" secondAttribute="centerX" id="SMt-3v-UYG"/>
                                             <constraint firstItem="Hbe-49-gFj" firstAttribute="centerX" secondItem="mGm-nO-U6L" secondAttribute="centerX" id="ZmV-qt-xmO"/>
                                             <constraint firstItem="mGm-nO-U6L" firstAttribute="centerX" secondItem="g6l-xD-Uwn" secondAttribute="centerX" id="aea-UB-m1I"/>
                                             <constraint firstItem="2Fd-ql-GLh" firstAttribute="top" secondItem="mGm-nO-U6L" secondAttribute="bottom" id="bDR-xh-j1J"/>
@@ -5220,7 +5233,7 @@ Email: support@spotlightrc.com
                                             <constraint firstItem="mGm-nO-U6L" firstAttribute="width" secondItem="2Fd-ql-GLh" secondAttribute="width" id="fKs-Vv-tyn"/>
                                             <constraint firstItem="8x8-Uj-5N2" firstAttribute="width" secondItem="g6l-xD-Uwn" secondAttribute="width" id="ghW-qc-OTT"/>
                                             <constraint firstItem="Hbe-49-gFj" firstAttribute="width" secondItem="mGm-nO-U6L" secondAttribute="width" id="h5v-9o-8sM"/>
-                                            <constraint firstItem="mGm-nO-U6L" firstAttribute="top" secondItem="2Fd-ql-GLh" secondAttribute="bottom" constant="5" id="jQU-hu-xWG"/>
+                                            <constraint firstItem="mGm-nO-U6L" firstAttribute="top" secondItem="2Fd-ql-GLh" secondAttribute="bottom" constant="10" id="jQU-hu-xWG"/>
                                             <constraint firstItem="2Fd-ql-GLh" firstAttribute="centerX" secondItem="g6l-xD-Uwn" secondAttribute="centerX" id="uju-AZ-RmU"/>
                                             <constraint firstItem="8x8-Uj-5N2" firstAttribute="centerX" secondItem="g6l-xD-Uwn" secondAttribute="centerX" id="y31-0G-jhq"/>
                                         </constraints>
@@ -7548,9 +7561,9 @@ Email: support@spotlightrc.com
                                         <exclude reference="JvS-Lu-V9r"/>
                                         <exclude reference="b46-ir-Lue"/>
                                         <exclude reference="CVW-Yn-fkc"/>
-                                        <exclude reference="yo6-6u-SV3"/>
                                         <exclude reference="XRH-7G-Jhw"/>
                                         <exclude reference="gvF-L5-hzY"/>
+                                        <exclude reference="yo6-6u-SV3"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -9050,9 +9063,9 @@ Email: support@spotlightrc.com
                                 <exclude reference="UuK-Wj-uuf"/>
                                 <exclude reference="6fn-RG-dhg"/>
                                 <exclude reference="mG8-9l-OmD"/>
+                                <exclude reference="WaQ-Z4-PUQ"/>
                                 <exclude reference="Xaz-Ee-HXy"/>
                                 <exclude reference="nuQ-Iu-omW"/>
-                                <exclude reference="WaQ-Z4-PUQ"/>
                                 <exclude reference="qQj-au-CKB"/>
                                 <exclude reference="nRR-64-va1"/>
                                 <exclude reference="xPi-7h-Cy2"/>
