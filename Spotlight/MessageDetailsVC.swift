@@ -1095,7 +1095,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             else
             {
                 //print ("message NOT sent")
-                self.connectionStatus.text = "Sending Failded. Please Retry!"
+                self.connectionStatus.text = "Sending Failed. Please Retry!"
             }
             
         });
@@ -1194,7 +1194,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             else
             {
                 //print ("message NOT sent")
-                self.connectionStatus.text = "Sending Failded. Please Retry!"
+                self.connectionStatus.text = "Sending Failed. Please Retry!"
             }
             
         });
@@ -2785,7 +2785,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             //FIRAnalytics.logEventWithName("VideoCall", parameters: params1 as! [String : NSObject])
             
             
-           
+            
             
             
             

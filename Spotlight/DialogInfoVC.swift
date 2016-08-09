@@ -1437,6 +1437,12 @@ class DialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITex
                             "gender": self.gender,
                             "prefs": self.prefs]
             
+            
+            print ("URL: \(self.url)/spotlight_text.php");
+            print ("My Params: \(params)");
+
+            
+            
             //print ("My Params: \(params)");
             Alamofire.request(.POST, "\(self.url)/spotlight_text.php", parameters: params).responseJSON {
                 response in

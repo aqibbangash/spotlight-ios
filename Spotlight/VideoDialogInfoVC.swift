@@ -1229,7 +1229,9 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
                             "gender": self.gender,
                             "prefs": self.prefs]
             
-            //print ("My Params: \(params)");
+            print ("URL: \(self.url)/spotlight_video.php");
+            print ("My Params: \(params)");
+            
             Alamofire.request(.POST, "\(self.url)/spotlight_video.php", parameters: params).responseJSON {
                 response in
                 

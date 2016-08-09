@@ -953,7 +953,8 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             Alamofire.request(.POST, "\(self.url)/spotlight_\(self.typeOfConvo).php", parameters: params).responseJSON {
                 response in
                 
-                ////print("GET BABY RESPONSE RAW: \(response)")
+                print ("URL:  \(self.url)/spotlight_\(self.typeOfConvo).php")
+                print("RESPONSE RAW: \(response)")
                 
                 let json  = response.result.value as? NSDictionary
                 

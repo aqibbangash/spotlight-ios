@@ -19,6 +19,7 @@
 		A2163A771CA15C06006A0107 /* picka.gif in Resources */ = {isa = PBXBuildFile; fileRef = A2163A761CA15C06006A0107 /* picka.gif */; };
 		A21791C71D2BECB700960F32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A21791C61D2BECB700960F32 /* GoogleService-Info.plist */; };
 		A21791C91D2BECC100960F32 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = A21791C81D2BECC100960F32 /* GoogleService-Info-3.plist */; };
+		A217EB671D53E43C005639B3 /* bg-gradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A217EB661D53E43C005639B3 /* bg-gradient.jpg */; };
 		A21B02BA1C9CA85500BEB38E /* btn-line.png in Resources */ = {isa = PBXBuildFile; fileRef = A21B02B91C9CA85500BEB38E /* btn-line.png */; };
 		A220FCBC1C7BDC4100451D88 /* QuickbloxWebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A220FCBB1C7BDC4100451D88 /* QuickbloxWebRTC.framework */; };
 		A22130FC1D19CB03001FBC22 /* bg-gradient-notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = A22130FB1D19CB03001FBC22 /* bg-gradient-notifications.png */; };
@@ -186,6 +187,7 @@
 		A2163A761CA15C06006A0107 /* picka.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = picka.gif; sourceTree = "<group>"; };
 		A21791C61D2BECB700960F32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A21791C81D2BECC100960F32 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
+		A217EB661D53E43C005639B3 /* bg-gradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-gradient.jpg"; sourceTree = "<group>"; };
 		A21B02B91C9CA85500BEB38E /* btn-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-line.png"; sourceTree = "<group>"; };
 		A220FCBB1C7BDC4100451D88 /* QuickbloxWebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuickbloxWebRTC.framework; sourceTree = "<group>"; };
 		A22130FB1D19CB03001FBC22 /* bg-gradient-notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient-notifications.png"; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				A2298E101C95B4BF009DF8B5 /* btn_youtube.png */,
 				A2298E161C95B6A6009DF8B5 /* btn_video.png */,
 				A24D85E81CC422C400EB20B2 /* changePassword.png */,
+				A217EB661D53E43C005639B3 /* bg-gradient.jpg */,
 				A24D85EA1CC4234600EB20B2 /* deactivateAccount.png */,
 				A2298E171C95B6A6009DF8B5 /* btn_settings.png */,
 				A2298E181C95B6A6009DF8B5 /* btn_msg.png */,
@@ -846,6 +849,7 @@
 				A2136CCC1CA5F02000375A09 /* btn-web.png in Resources */,
 				A2D7E0471C6E3A5600C1C95B /* LaunchScreen.storyboard in Resources */,
 				A2E65B311CAC36D70054E1B1 /* btn_send.png in Resources */,
+				A217EB671D53E43C005639B3 /* bg-gradient.jpg in Resources */,
 				A2298DFA1C9451DB009DF8B5 /* diallingcode.json in Resources */,
 				A2BAA9AA1CA5A692006293D4 /* checked.png in Resources */,
 				A29311411CFD7016007D3DF8 /* 1464696502_lock.png in Resources */,
