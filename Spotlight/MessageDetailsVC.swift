@@ -321,6 +321,8 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     
     @IBAction func answerCall(sender: UIButton) {
         
+        print ("***Call Answered")
+        
         QBRTCSoundRouter.instance().initialize()
         
         QBRTCSoundRouter.instance().currentSoundRoute = QBRTCSoundRoute.Speaker
@@ -560,6 +562,8 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     
     @IBAction func requestVideoButtonPressed(sender: UIButton) {
         
+        print ("**Video Req Made")
+        
         if (self.connectionStatus.text != "connecting")
         {
             startVideoSession()
@@ -671,10 +675,16 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     }
     
     
+    func chatDidReconnect() {
+        
+        GTToast.create("Chat Reconnected").show()
+        
+    }
     
     func chatDidAccidentallyDisconnect() {
         
         connectButton.titleLabel?.text = "Connect To Dialog"
+        GTToast.create("Chat disconnected. Network Error.").show()
         
         
     }
@@ -710,33 +720,67 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     
     
     func session(session: QBRTCSession!, acceptedByUser userID: NSNumber!, userInfo: [NSObject : AnyObject]!) {
-        //print ("***accepted by user")
+        print ("***accepted by user")
         
         loadingMessage.text = "Accepted by user..."
-        
-        GTToast.create("Video Request Accepted by \(self.thisUserName)").show()
+        if (self.connectionFrom != "Video"){
+            
+            GTToast.create("Video Request Accepted by \(self.thisUserName)").show()
+        }
         
         
         
     }
     
     func session(session: QBRTCSession!, rejectedByUser userID: NSNumber!, userInfo: [NSObject : AnyObject]!) {
+        print ("***rejected by user")
         
         loadingMessage.text = "Rejected by user..."
-        GTToast.create("Video Request Rejected by \(self.thisUserName)")
+        if (self.connectionFrom != "Video"){
+            
+            GTToast.create("Video Request Rejected by \(self.thisUserName)").show()
+        }
+        
         videoView.hidden = true
         
     }
     
     func session(session: QBRTCSession!, startedConnectingToUser userID: NSNumber!) {
-        //print ("***started connecting to user")
+        
+        print ("***started connecting to user")
+        
         loadingMessage.text = "Attempting to connect..."
         loadingView.hidden = false
     }
     
+    func session(session: QBRTCSession!, disconnectedFromUser userID: NSNumber!) {
+        
+        
+        self.connectionStatus.text = "\(self.thisUserName) has left."
+        
+        self.userHasLeft.text = "\(self.thisUserName) has left."
+        self.userHasLeft.hidden = false
+        self.userLeftImage.hidden = false
+        self.left = true
+        
+        self.getAllBlocks("\(self.userId)")
+        
+    }
+    
+    func session(session: QBRTCSession!, disconnectedByTimeoutFromUser userID: NSNumber!) {
+        
+        self.connectionStatus.text = "\(self.thisUserName) has left."
+        
+        self.userHasLeft.text = "\(self.thisUserName) has left."
+        self.userHasLeft.hidden = false
+        self.userLeftImage.hidden = false
+        self.left = true
+        
+        self.getAllBlocks("\(self.userId)")
+    }
     
     func session(session: QBRTCSession!, connectedToUser userID: NSNumber!) {
-        //print ("***connected to user")
+        print ("***connected to user")
         loadingMessage.text = "Connected to User"
         loadingView.hidden = true
         
@@ -762,6 +806,24 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     
     
     @IBOutlet weak var callReceivedImage: PASImageView!
+    
+    
+    func session(session: QBRTCSession!, connectionFailedForUser userID: NSNumber!) {
+        
+        
+        self.connectionStatus.text = "\(self.thisUserName) has left."
+        
+        self.userHasLeft.text = "\(self.thisUserName) has left."
+        self.userHasLeft.hidden = false
+        self.userLeftImage.hidden = false
+        self.left = true
+        
+        self.getAllBlocks("\(self.userId)")
+        
+        
+        //GTToast.create("Couldn't connect to user...").show()
+        //nextPersonYes(UIButton())
+    }
     
     func session(session: QBRTCSession!, userDidNotRespond userID: NSNumber!) {
         //print ("***user didn't respond")
@@ -804,29 +866,39 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     
     func didReceiveNewSession(session: QBRTCSession!, userInfo: [NSObject : AnyObject]!) {
         
-        //print ("***Call Received.")
+        print ("***Call Received. \(self.session)")
         
-        
-        
-        self.session = session
-        
-        
-        self.callReceivedImage.backgroundColor = UIColor.clearColor()
-        
-        self.callReceivedImage.progressColor = UIColor.clearColor()
-        
-        self.callReceivedImage.imageURL(NSURL(string: "\(self.hisImage)")!)
-        
-        self.callByName.text = self.thisUserName
-        
-        self.callReceivedDialog.hidden = false
-        
-        if (self.connectionFrom == "Video")
+        if (self.session == nil)
         {
-            self.answerCall(UIButton())
+            
+            self.session = session
+            
+            self.callReceivedImage.backgroundColor = UIColor.clearColor()
+            
+            self.callReceivedImage.progressColor = UIColor.clearColor()
+            
+            self.callReceivedImage.imageURL(NSURL(string: "\(self.hisImage)")!)
+            
+            self.callByName.text = self.thisUserName
+            
+            self.callReceivedDialog.hidden = false
+            
+            loadingMessage.text = "Connection Received..."
+            
+            if (self.connectionFrom == "Video")
+            {
+                
+                print ("***Call Accepted")
+                self.answerCall(UIButton())
+                loadingMessage.text = "Accepted by user..."
+            }
+            
         }
         
+        
     }
+    
+    
     
     
     @IBOutlet weak var userHasLeft: UILabel!
@@ -890,9 +962,12 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     func startVideoSession()
     {
         
+        print ("***I started session")
         
-        GTToast.create("Video Requested. Please wait!").show()
         
+        if (self.connectionFrom != "Video"){
+            GTToast.create("Video Requested. Please wait!").show()
+        }
         
         loadingMessage.text = "Initializing..."
         
@@ -1100,6 +1175,104 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             
         });
         
+        
+    }
+    
+    
+    func sendTextMessage(m: String) {
+        
+        let message: QBChatMessage = QBChatMessage()
+        message.text = m
+        
+        let params : NSMutableDictionary = NSMutableDictionary()
+        params["save_to_history"] = false
+        message.customParameters = params
+        
+        chatDialog.sendMessage(message, completionBlock: { (error: NSError?) -> Void in
+            
+            if (error == nil)
+            {
+                //print ("message sent")
+                
+                self.messageTextField.text = ""
+                var chatBubbleData = ChatBubbleData(text: message.text, image: nil, date: NSDate(), type: BubbleDataType.Mine)
+                
+                var chatBubble = ChatBubble(data: chatBubbleData, startX:self.mineStartingX, startY: self.startingY)
+                
+                
+                var pic = PASImageView(frame: CGRect(x: Int(self.view.frame.width-50) , y: Int(self.startingY)-10, width: 40, height: 40))
+                
+                pic.backgroundColor = UIColor.clearColor()
+                
+                pic.progressColor = UIColor.clearColor()
+                
+                //pic.imageURL(NSURL(string: self.myImage)!)
+                
+                if (self.myImage == "image")
+                {
+                    if (self.thisUserGender == "M")
+                    {
+                        pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                    }
+                    else
+                    {
+                        pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                    }
+                }
+                else{
+                    pic.imageURL(NSURL(string: self.myImage)!)
+                }
+                
+                
+                
+                self.startingY += chatBubble.layer.frame.height + 30
+                
+                if (self.chatScrollView.contentSize.height < (self.startingY))
+                {
+                    self.chatScrollView.contentSize = CGSizeMake(self.view.frame.width, self.startingY)
+                }
+                
+                self.chatScrollView.addSubview(chatBubble)
+                
+                self.chatScrollView.addSubview(pic)
+                
+                self.scrollToBottom()
+                
+                let push = PFPush()
+                push.setChannel("P-\(self.currentConnectedUser)")
+                push.setMessage("\(self.name) sent you a message.")
+                push.sendPushInBackground()
+                
+                print ("*ConnFrom: \(self.connectionFrom)")
+                
+                
+                if (self.connectionFrom == "Messages")
+                {
+                    
+                    //print ("Self.name: \(self.name)");
+                    QBRequest.sendPushWithText("\(self.name) sent you a message.", toUsers: "\(self.currentConnectedUser)", successBlock: { (response, event) in
+                        
+                        //print ("push sent to \(self.currentConnectedUser)")
+                        
+                        
+                        
+                        }, errorBlock: { (error) in
+                            
+                            //print ("Error sending  to \(self.currentConnectedUser)")
+                            
+                    })
+                    
+                    
+                }
+                
+            }
+            else
+            {
+                //print ("message NOT sent")
+                self.connectionStatus.text = "Sending Failed. Please Retry!"
+            }
+            
+        });
         
     }
     
@@ -1670,7 +1843,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     
     func chatDidReceiveSystemMessage(message: QBChatMessage) {
         
-        //print ("message: \(message.text)")
+        print ("message: \(message.text)")
         connectionStatus.text = message.text!
     }
     
@@ -1686,6 +1859,17 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             
             
         }
+        
+        if (message.text == "Video Chat Session Started" && connectionFrom == "Video"){
+            
+            self.requestVideoButtonPressed(UIButton())
+            GTToast.create("User has joined").show()
+            
+        }
+        else{
+            print ("* *\(message.text)")
+        }
+        
         
         
         if (message.attachments == nil)
@@ -3433,9 +3617,12 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                         if (self.chatDialog.recipientID>Int(self.userId))
                         {
                             //print ("\(self.chatDialog.recipientID) Greater then \(self.userId)")
-                            self.requestVideoButtonPressed(UIButton())
+                            //self.requestVideoButtonPressed(UIButton())
                         }
                         else{
+                            //12345
+                            GTToast.create("Waiting For User...").show()
+                            self.sendTextMessage("Video Chat Session Started")
                             //print ("\(self.chatDialog.recipientID) Smaller then \(self.userId)")
                         }
                     }
@@ -3612,6 +3799,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setObject(total, forKey: "totalCalls")
         userDefaults.synchronize()
+        
         
         
     }
@@ -3864,6 +4052,30 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             self.chatDialog = createdDialog!
             
             //self.alert.dismissWithClickedButtonIndex(0, animated: true)
+            
+            
+            
+            self.chatDialog.onJoinOccupant = {(userID: UInt) in
+                
+                
+                self.connectionStatus.text = "\(self.thisUserName) is Online"
+                
+            }
+            
+            self.chatDialog.onLeaveOccupant = {(userID: UInt) in
+                
+                self.connectionStatus.text = "\(self.thisUserName) has left."
+                
+                self.userHasLeft.text = "\(self.thisUserName) has left."
+                self.userHasLeft.hidden = false
+                self.userLeftImage.hidden = false
+                self.left = true
+                
+                self.getAllBlocks("\(self.userId)")
+            }
+            
+            self.chatDialog.onUpdateOccupant = {(userID: UInt) in
+            }
             
             self.startMakingConnection()
             

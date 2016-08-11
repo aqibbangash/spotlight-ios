@@ -662,7 +662,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spotlight/FriendsVC.swift"
@@ -682,11 +682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spotlight/MessageDetailsVC.swift"
-            timestampString = "490878106.56827"
+            timestampString = "492602400.762701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1637"
-            endingLineNumber = "1637"
+            startingLineNumber = "1810"
+            endingLineNumber = "1810"
             landmarkName = "chatDidReceiveContactItemActivity(_:isOnline:status:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -698,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spotlight/MessageDetailsVC.swift"
-            timestampString = "490877966.338642"
+            timestampString = "492602400.762701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1064"
-            endingLineNumber = "1064"
+            startingLineNumber = "1139"
+            endingLineNumber = "1139"
             landmarkName = "sendMsg(_:img:)"
             landmarkType = "5">
          </BreakpointContent>

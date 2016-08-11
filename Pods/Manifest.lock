@@ -51,8 +51,8 @@ DEPENDENCIES:
   - MBRateApp (~> 0.1)
   - MICountryPicker (~> 0.1)
   - Parse (~> 1.13)
-  - QuickBlox (~> 2.7)
-  - Quickblox-WebRTC (~> 2.1.1)
+  - QuickBlox
+  - Quickblox-WebRTC
   - SVProgressHUD (~> 2.0)
   - UIViewBadge (~> 1.0)
   - VideoBackgroundViewController (~> 0.0)

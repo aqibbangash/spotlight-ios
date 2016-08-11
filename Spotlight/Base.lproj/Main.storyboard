@@ -3399,10 +3399,10 @@
                             <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D9q-CH-uqW">
                                 <rect key="frame" x="10.5" y="-1" width="1.5" height="2"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wz4-Df-Zjw" customClass="PASImageView" customModule="Spotlight" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wz4-Df-Zjw" customClass="PASImageView" customModule="Spotlight" customModuleProvider="target">
                                         <rect key="frame" x="10" y="0.0" width="2" height="2"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J22-Ob-qfY" customClass="UIImageView">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J22-Ob-qfY" customClass="UIImageView">
                                         <rect key="frame" x="-10.5" y="0.0" width="2" height="2"/>
                                     </view>
                                 </subviews>

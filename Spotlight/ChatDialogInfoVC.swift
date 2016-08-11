@@ -954,6 +954,7 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                 response in
                 
                 print ("URL:  \(self.url)/spotlight_\(self.typeOfConvo).php")
+                print ("Params*: ",params)
                 print("RESPONSE RAW: \(response)")
                 
                 let json  = response.result.value as? NSDictionary

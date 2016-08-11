@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A2616E35D6E8A9183DDD2D17'
+               BlueprintIdentifier = 'B7450B5D9A38DB5D662C56AD'
                BlueprintName = 'UIViewBadge'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'UIViewBadge.framework'>

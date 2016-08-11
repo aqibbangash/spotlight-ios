@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8E4489EEFD36AB0953265011'
+               BlueprintIdentifier = '52108F4EA9C33616F719FEC4'
                BlueprintName = 'CTShowcase'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'CTShowcase.framework'>

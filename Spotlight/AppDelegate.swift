@@ -290,6 +290,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Enables detailed XMPP logging in console output.
         QBSettings.enableXMPPLogging()
         
+        QBSettings.setAutoReconnectEnabled(true);
         
         if application.applicationState != UIApplicationState.Background {
             // Track an app open here if we launch with a push, unless
@@ -437,6 +438,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         QBChat.instance().disconnectWithCompletionBlock { (error: NSError?) -> Void in
             
+            GTToast.create("Chat Disconnedted").show();
         }
         
     }
@@ -469,6 +471,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         m.password = getCurrentUser()[1]
         
         QBChat.instance().connectWithUser(m) { (error: NSError?) -> Void in
+            
+            if (error == nil)
+            {
+                
+                GTToast.create("Reconnecting...").show();
+            }
+            else
+            {
+                GTToast.create("Error: \(error?.localizedDescription)").show();
+                
+            }
             
         }
         

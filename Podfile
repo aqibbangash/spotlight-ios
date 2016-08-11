@@ -1,8 +1,8 @@
 use_frameworks!
 pod 'Alamofire', '~> 3.3'
 pod 'KFSwiftImageLoader', '~> 2.0'
-pod 'QuickBlox', '~> 2.7'
-pod 'Quickblox-WebRTC', '~> 2.1.1'
+pod 'QuickBlox'
+pod 'Quickblox-WebRTC'
 pod 'SVProgressHUD', '~> 2.0'
 pod 'VideoBackgroundViewController', '~> 0.0'
 pod 'GTToast', '~> 0.1'
