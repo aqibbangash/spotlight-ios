@@ -16,7 +16,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var friendsList:[AnyObject] = []
     @IBOutlet weak var tableView: UITableView!
     var userId:UInt!
-    var url = "https://exchangeappreview.azurewebsites.net/Spotlight"
+    var url = "https://spotlight.azure-mobile.net/api"
     var allF:[NSDictionary] = []
     var gender:String!
     var userPassword:String!

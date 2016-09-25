@@ -12,7 +12,7 @@ import Alamofire
 
 class FriendslistVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var url = "https://exchangeappreview.azurewebsites.net/Spotlight"
+    var url = "https://spotlight.azure-mobile.net/api"
     @IBOutlet weak var tableView: UITableView!
     var userId:UInt!
     var dialogs:[QBChatDialog] = []

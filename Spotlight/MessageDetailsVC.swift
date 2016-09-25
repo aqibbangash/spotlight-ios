@@ -16,6 +16,7 @@ import FirebaseAnalytics
 
 class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITextFieldDelegate,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, GADInterstitialDelegate {
     
+    var userJoined = false
     var personNumber:Int!
     var uniqueId:String!
     @IBOutlet weak var topSpace: NSLayoutConstraint!
@@ -35,7 +36,8 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     var currentConnectedUserName = ""
     var currentConnectedRoomId = ""
     var connectedUserDetails:[AnyObject]!
-    var url = "https://exchangeappreview.azurewebsites.net/"
+    var url = "https://spotlightrc.azurewebsites.net/"
+    var apiUrl = "https://spotlight.azure-mobile.net/api/"
     var requestId:String!
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var loadingMessage: UILabel!
@@ -97,6 +99,81 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     func printTimestamp() -> String {
         let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
         return (timestamp)
+    }
+    
+    func userHasLeftRoom()
+    {
+        self.connectionStatus.text = "\(self.thisUserName) has left."
+        
+        self.userHasLeft.text = "\(self.thisUserName) has left."
+        self.userHasLeft.hidden = false
+        self.userLeftImage.hidden = false
+        self.left = true
+        
+        self.getAllBlocks("\(self.userId)")
+    }
+    
+    
+    func checkOnline()
+    {
+        let params = ["user_id":"\(self.userId)", "dialog_id":"\(self.chatDialog.ID!)"]
+        
+        let hitting_url = "\(self.apiUrl)checkLeft2"
+        
+        print ("url: \(hitting_url)")
+        print ("params: \(params)")
+        
+        
+        Alamofire.request(.POST, hitting_url, parameters: params).responseJSON { response in
+            
+            if (response.result.error == nil)
+            {
+                //print("BLOCKERS:  \(response)")
+                
+                let json  = response.result.value as? NSDictionary
+                
+                print ("JSON: \(json)")
+                
+                var onlineUser = json?.valueForKey("boolean") as? Bool
+                
+                print ("**\(onlineUser)")
+                
+                if (onlineUser != nil)
+                {
+                    if (onlineUser!)
+                    {
+                        if (self.connected)
+                        {
+                            if (self.userJoined == false){
+                                self.userJoined = true
+                                GTToast.create("\(self.currentConnectedUserName) has joined.")
+                            }
+                            NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "checkOnline", userInfo: nil, repeats: false)
+                            
+                        }
+                    }
+                    else
+                    {
+                        if (self.userJoined)
+                        {
+                            self.userHasLeftRoom()
+                        }
+                        else
+                        {
+                            if (self.connected)
+                            {
+                                NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "checkOnline", userInfo: nil, repeats: false)
+                            }
+                        }
+                    }
+                }
+                
+            }
+            
+            
+            
+        }
+        
     }
     
     func connectWithChat()
@@ -585,6 +662,8 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         //print ("Chat Did Connect")
         
         
+        
+        
         self.chatDialog.onUserIsTyping = {
             
             
@@ -602,10 +681,34 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             
             self!.connectionStatus.text = "Connected"
             
+        }
+        
+        
+        self.chatDialog.onJoinOccupant = {(userID: UInt) in
             
+            
+            self.connectionStatus.text = "\(self.thisUserName) is Online"
+            
+        }
+        
+        self.chatDialog.onLeaveOccupant = {(userID: UInt) in
+            
+            self.connectionStatus.text = "\(self.thisUserName) has left."
+            
+            self.userHasLeft.text = "\(self.thisUserName) has left."
+            self.userHasLeft.hidden = false
+            self.userLeftImage.hidden = false
+            self.left = true
+            
+            self.getAllBlocks("\(self.userId)")
+        }
+        
+        self.chatDialog.onUpdateOccupant = {(userID: UInt) in
             
             
         }
+        
+        
         
         self.connectionStatus.text = "Connected"
         
@@ -1038,7 +1141,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         
         var rS = ""
         
-        Alamofire.request(.POST, "https://exchangeappreview.azurewebsites.net/Spotlight/blocked_by_user.php", parameters: ["id":id]).responseJSON { response in
+        Alamofire.request(.POST, "https://spotlight.azure-mobile.net/api/blocked_by_user", parameters: ["id":id]).responseJSON { response in
             
             if (response.result.error == nil)
             {
@@ -1046,16 +1149,25 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                 
                 let json  = response.result.value as? NSDictionary
                 
-                rS = json?.valueForKey("returning") as! String
-                
-                if (rS.rangeOfString("\(self.userId)") != nil)
+                if (json?.valueForKey("returning") as? String != nil)
                 {
                     
-                    //print("Contains")
+                    rS = json?.valueForKey("returning") as! String
+                    
+                    
+                    
+                    if (rS.rangeOfString("\(self.userId)") != nil)
+                    {
+                        
+                        //print("Contains")
+                    }
+                    else{
+                        //print("Not Contains")
+                    }
+                    
                 }
-                else{
-                    //print("Not Contains")
-                }
+                
+                
                 
                 
             }
@@ -1097,11 +1209,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                 {
                     if (self.thisUserGender == "M")
                     {
-                        pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                        pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                     }
                     else
                     {
-                        pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                        pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                     }
                 }
                 else{
@@ -1212,11 +1324,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                 {
                     if (self.thisUserGender == "M")
                     {
-                        pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                        pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                     }
                     else
                     {
-                        pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                        pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                     }
                 }
                 else{
@@ -1310,11 +1422,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                 {
                     if (self.thisUserGender == "M")
                     {
-                        pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                        pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                     }
                     else
                     {
-                        pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                        pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                     }
                 }
                 else{
@@ -1435,11 +1547,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                         {
                             if (self.thisUserGender == "M")
                             {
-                                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                             }
                             else
                             {
-                                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                             }
                         }
                         else{
@@ -1481,11 +1593,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                         {
                             if (self.thisUserGender == "M")
                             {
-                                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                             }
                             else
                             {
-                                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                             }
                         }
                         else{
@@ -1541,11 +1653,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                         {
                             if (self.thisUserGender == "M")
                             {
-                                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                             }
                             else
                             {
-                                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                             }
                         }
                         else{
@@ -1600,11 +1712,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                         {
                             if (self.thisUserGender == "M")
                             {
-                                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                             }
                             else
                             {
-                                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                             }
                         }
                         else{
@@ -1703,16 +1815,18 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         alert.message = "Submitting Report"
         alert.show()
         
-        var params = ["userId":id, "points": "-10", "reporter":s]
+        var params = ["user_id":id, "points": "-10", "reporter":s]
         
-        //print("reporting ** params:  \(params)")
+        print("reporting ** params:  \(params)")
         
-        var apiCall = "https://exchangeappreview.azurewebsites.net/Spotlight/report_user.php"
+        var apiCall = "https://spotlight.azure-mobile.net/api/report_user"
         
         Alamofire.request(.POST, apiCall, parameters: params).responseJSON {
             response in
             
+            var json  = response.result.value as? NSDictionary
             
+            print ("ResponseReport:  \(json)")
             self.alert.dismissWithClickedButtonIndex(0, animated: true)
             
             //            self.alert.dismissWithClickedButtonIndex(0, animated: true)
@@ -1941,11 +2055,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         {
             if (self.thisUserGender == "M")
             {
-                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
             }
             else
             {
-                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
             }
         }
         else{
@@ -2010,11 +2124,11 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         {
             if (self.thisUserGender == "M")
             {
-                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
             }
             else
             {
-                pic.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                pic.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
             }
         }
         else{
@@ -2195,12 +2309,12 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             if (self.thisUserGender == "M")
             {
                 
-                self.myImage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png"
+                self.myImage = "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png"
                 
             }else
             {
                 
-                self.myImage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png"
+                self.myImage = "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png"
                 
             }
             
@@ -2213,18 +2327,18 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             if (self.thisUserGender == "M")
             {
                 
-                self.imageInfo.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
-                self.proInfoImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                self.imageInfo.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
+                self.proInfoImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                 
-                self.hisImage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png"
+                self.hisImage = "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png"
                 
             }else
             {
                 
-                self.imageInfo.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
-                self.proInfoImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                self.imageInfo.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
+                self.proInfoImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                 
-                self.hisImage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png"
+                self.hisImage = "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png"
                 
             }
             
@@ -3085,7 +3199,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         
         //print("params:  \(params)")
         
-        var apiCall = "https://exchangeappreview.azurewebsites.net/Spotlight/point_plus_plus.php"
+        var apiCall = "https://spotlight.azure-mobile.net/api/point_plus_plus"
         
         Alamofire.request(.POST, apiCall).responseJSON {
             response in
@@ -3489,7 +3603,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                             "request_by":"\(userId)"]
             
             //print (params);
-            Alamofire.request(.POST, "\(self.url)pendingRequests.php", parameters: params).responseJSON {
+            Alamofire.request(.POST, "\(self.apiUrl)pendingRequests", parameters: params).responseJSON {
                 response in
                 
                 //print(response)
@@ -3583,6 +3697,9 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                     
                     self.connectionStatus.text = "Connected"
                     
+                    NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "checkOnline", userInfo: nil, repeats: false)
+                    
+                    
                     self.btnVideoBtn.enabled = true
                     
                     self.left = false
@@ -3659,7 +3776,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         if (userId != nil)
         {
             var params = [ "user_id": userId ]
-            Alamofire.request(.POST, "https://exchangeappreview.azurewebsites.net/Spotlight/delete_request.php", parameters: params)
+            Alamofire.request(.POST, "https://spotlight.azure-mobile.net/api/delete_request", parameters: params)
         }
     }
     
@@ -3810,7 +3927,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     {
         var params = ["UserId": "\(userId)", "request_type": "text"]
         
-        Alamofire.request(.POST, "\(url)makeRequest.php", parameters: params)
+        Alamofire.request(.POST, "\(self.apiUrl)makeRequest", parameters: params)
         
         getAllOnlineUsers()
     }
@@ -4054,7 +4171,7 @@ class MessageDetailsVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             //self.alert.dismissWithClickedButtonIndex(0, animated: true)
             
             
-            
+            //123123123
             self.chatDialog.onJoinOccupant = {(userID: UInt) in
                 
                 

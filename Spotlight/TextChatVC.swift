@@ -24,7 +24,7 @@ class TextChatVC: UIViewController, QBChatDelegate, UITableViewDelegate, UITable
     var onlineUsers:[NSDictionary] = []
     var filteredUsers:[String] = []
     let alert = UIAlertView()
-    var url = "https://exchangeappreview.azurewebsites.net/"
+    var url = "https://spotlightrc.azurewebsites.net/"
     var dialog:QBChatDialog!
     var requestId:String!
     

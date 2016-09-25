@@ -51,7 +51,7 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
     @IBOutlet weak var connectedToPerson: UILabel!
     @IBOutlet weak var connectionTime: UILabel!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    var url = "https://exchangeappreview.azurewebsites.net/Spotlight"
+    var url = "https://spotlight.azure-mobile.net/api"
     @IBOutlet weak var addFriendButton: UIButton!
     
     var userId:UInt!
@@ -317,7 +317,7 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         
         //print("params:  \(params)")
         
-        var apiCall = "https://exchangeappreview.azurewebsites.net/Spotlight/point_plus_plus.php"
+        var apiCall = "https://spotlight.azure-mobile.net/api/point_plus_plus.php"
         
         Alamofire.request(.POST, apiCall).responseJSON {
             response in
@@ -947,13 +947,14 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             
             let params = [  "user_id": "\(self.userId)" ,
                             "gender": self.gender,
+                            "type": "\(self.typeOfConvo)",
                             "prefs": self.prefs]
             
             //print ("My Params: \(params)");
-            Alamofire.request(.POST, "\(self.url)/spotlight_\(self.typeOfConvo).php", parameters: params).responseJSON {
+            Alamofire.request(.POST, "https://spotlight.azure-mobile.net/api/spotlight", parameters: params).responseJSON {
                 response in
                 
-                print ("URL:  \(self.url)/spotlight_\(self.typeOfConvo).php")
+                print ("URL:  https://spotlight.azure-mobile.net/api/spotlight")
                 print ("Params*: ",params)
                 print("RESPONSE RAW: \(response)")
                 
@@ -963,91 +964,102 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
                 
                 if (json != nil)
                 {
-                    if (json?.valueForKey("boolean") as! Bool == true)
+                    if (json!.valueForKey("boolean") as? Bool != nil)
                     {
-                        //print ("GET BABY RETURNED TRUE")
+                    
                         
-                        
-                        if  (json?.valueForKey("id") as? String != nil)
+                        if (json!.valueForKey("boolean") as! Bool == true)
                         {
+                            //print ("GET BABY RETURNED TRUE")
                             
                             
-                            self.json = json
-                            self.currentConnectedUser = json?.valueForKey("id") as! String
-                            
-                            if ((json?.valueForKey("full_name") as? String != nil))
+                            if  (json?.valueForKey("id") as? String != nil)
                             {
-                                self.thisUserName =  json?.valueForKey("full_name") as! String
-                            }
-                            
-                            if ((json?.valueForKey("vip") as? Bool != nil))
-                            {
-                                self.thisUserPro =  json?.valueForKey("vip") as! Bool
-                            }
-                            
-                            
-                            
-                            
-                            if ( json?.valueForKey("requestId") as? String != nil){
-                                self.requestId =  json?.valueForKey("requestId") as! String
+                                
+                                
+                                self.json = json
+                                self.currentConnectedUser = json?.valueForKey("id") as! String
+                                
+                                if ((json?.valueForKey("full_name") as? String != nil))
+                                {
+                                    self.thisUserName =  json?.valueForKey("full_name") as! String
+                                }
+                                
+                                if ((json?.valueForKey("vip") as? Bool != nil))
+                                {
+                                    self.thisUserPro =  json?.valueForKey("vip") as! Bool
+                                }
+                                
+                                
+                                
+                                
+                                if ( json?.valueForKey("requestId") as? String != nil){
+                                    self.requestId =  json?.valueForKey("requestId") as! String
+                                }
+                                else{
+                                    self.requestId = "something"
+                                }
+                                
+                                if ( json?.valueForKey("age") as? String != nil){
+                                    self.thisUserAge =  json?.valueForKey("age") as! String
+                                }
+                                
+                                if ( json?.valueForKey("city") as? String != nil)
+                                {
+                                    self.thisUserCity =  json?.valueForKey("city") as! String
+                                }
+                                
+                                if (json?.valueForKey("country") as? String != nil)
+                                {
+                                    self.thisUserCountry =  json?.valueForKey("country") as! String
+                                }
+                                
+                                if (json?.valueForKey("profile_pic") as? String != nil)
+                                {
+                                    self.thisUserPic =  json?.valueForKey("profile_pic") as! String
+                                }
+                                
+                                if (json?.valueForKey("gender") as? String != nil)
+                                {
+                                    self.thisUserGender =  json?.valueForKey("gender") as! String
+                                }
+                                
+                                self.continueState = false
+                                
+                                
+                                self.allDOne = 1
+                                self.personNumber = self.personNumber+1
+                                
+                                self.performSegueWithIdentifier("toMessageDetails", sender: self)
+                                
+                                //self.showConnectedUserDetails()
+                                
+                                //self.createDialog()
+                                
+                                
+                                
                             }
                             else{
-                                self.requestId = "something"
+                                //print ("GET API RESPONSE FAILED. ATTEMPTING AGAIN")
+                                self.getAPIResponse()
                             }
                             
-                            if ( json?.valueForKey("age") as? String != nil){
-                                self.thisUserAge =  json?.valueForKey("age") as! String
-                            }
-                            
-                            if ( json?.valueForKey("city") as? String != nil)
-                            {
-                                self.thisUserCity =  json?.valueForKey("city") as! String
-                            }
-                            
-                            if (json?.valueForKey("country") as? String != nil)
-                            {
-                                self.thisUserCountry =  json?.valueForKey("country") as! String
-                            }
-                            
-                            if (json?.valueForKey("profile_pic") as? String != nil)
-                            {
-                                self.thisUserPic =  json?.valueForKey("profile_pic") as! String
-                            }
-                            
-                            if (json?.valueForKey("gender") as? String != nil)
-                            {
-                                self.thisUserGender =  json?.valueForKey("gender") as! String
-                            }
-                            
-                            self.continueState = false
-                            
-                            
-                            self.allDOne = 1
-                            self.personNumber = self.personNumber+1
-                            
-                            self.performSegueWithIdentifier("toMessageDetails", sender: self)
-                            
-                            //self.showConnectedUserDetails()
-                            
-                            //self.createDialog()
                             
                             
                             
                         }
-                        else{
-                            //print ("GET API RESPONSE FAILED. ATTEMPTING AGAIN")
+                        else
+                        {
+                            //print ("GET API RESPONSE RETURNED FALSE. ATTEMPTING AGAIN")
                             self.getAPIResponse()
                         }
                         
-                        
-                        
-                        
-                    }
-                    else
+                    }else
                     {
                         //print ("GET API RESPONSE RETURNED FALSE. ATTEMPTING AGAIN")
                         self.getAPIResponse()
                     }
+                    
                     
                 }
                 else
@@ -1131,17 +1143,17 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
             if (self.thisUserGender == "M")
             {
                 
-                self.userInfoImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
-                self.userInfroProImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                self.userInfoImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
+                self.userInfroProImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                 
-                self.hisImage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png"
+                self.hisImage = "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png"
             }else
             {
                 
-                self.userInfoImage.imageURL(NSURL(string: "hhttps://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
-                self.userInfroProImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                self.userInfoImage.imageURL(NSURL(string: "hhttps://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
+                self.userInfroProImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                 
-                self.hisImage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png"
+                self.hisImage = "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png"
             }
             
             
@@ -1204,7 +1216,7 @@ class ChatDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, U
         //print ("*GET ALL BLOCKER USERS - START")
         //newloadingView.hidden = true
         
-        Alamofire.request(.POST, "https://exchangeappreview.azurewebsites.net/Spotlight/blocked_by_user.php", parameters: ["id":id]).responseJSON { response in
+        Alamofire.request(.POST, "https://spotlight.azure-mobile.net/api/blocked_by_user.php", parameters: ["id":id]).responseJSON { response in
             
             if (response.result.error == nil)
             {

@@ -25,7 +25,7 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var connectedUserDetails:[AnyObject]?
     var recepts:[String] = []
     @IBOutlet weak var noMessagesFound: UILabel!
-    var url = "https://exchangeappreview.azurewebsites.net/Spotlight"
+    var url = "https://spotlight.azure-mobile.net/api"
     @IBOutlet weak var optionsBtnsView: UIView!
     @IBOutlet weak var const: NSLayoutConstraint!
     var allF:[NSDictionary]!

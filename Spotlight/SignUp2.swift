@@ -58,8 +58,8 @@ class SignUp2: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     
     var url = "https://exchangeappreview.azurewebsites.net/Spotlight/uploadImage.php"
-    var maleImage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png"
-    var femaleImage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png"
+    var maleImage = "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png"
+    var femaleImage = "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png"
     
     
     var currentUser:[AnyObject] = []
@@ -157,7 +157,7 @@ class SignUp2: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         
         if (s == "F")
         {
-            self.picUrl = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png"
+            self.picUrl = "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png"
             let u = UIImage(named: "default-female")
             self.picUrl = self.femaleImage
             if (u == nil)
@@ -169,7 +169,7 @@ class SignUp2: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         }
         else
         {
-            self.picUrl = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png"
+            self.picUrl = "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png"
             self.picUrl = self.maleImage
             let u = UIImage(named: "default-male")
             if (u == nil)
@@ -771,7 +771,7 @@ class SignUp2: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
                 
                 var pp = json!.valueForKey("fileurl") as! String
-                pp = "https://exchangeappreview.azurewebsites.net/Spotlight/\(pp)"
+                pp = "https://spotlight.azure-mobile.net/api/\(pp)"
                 
                 self.picUrl = pp
                 

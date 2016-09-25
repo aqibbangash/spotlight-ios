@@ -61,7 +61,7 @@ class HomeVC: UIViewController {
     var currentUser:[AnyObject]!
     var friendsString = ""
     var allF:[NSDictionary]!
-    var url = "https://exchangeappreview.azurewebsites.net/Spotlight"
+    var url = "https://spotlight.azure-mobile.net/api"
     
     @IBAction func openFriendsList(sender: UIButton) {
         
@@ -349,11 +349,11 @@ class HomeVC: UIViewController {
                 
                 if (thisUserGender == "M")
                 {
-                    self.profileP = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png"
+                    self.profileP = "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png"
                 }
                 else
                 {
-                    self.profileP = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png"
+                    self.profileP = "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png"
                 }
             }
         }
@@ -379,7 +379,7 @@ class HomeVC: UIViewController {
     {
         
         var params  = ["user_id": "\(self.userId)"]
-        var apiCall = "\(self.url)/getFriends.php"
+        var apiCall = "\(self.url)/getFriends"
         
         
         //print ("ApiCall: \(apiCall)")
@@ -716,7 +716,19 @@ class HomeVC: UIViewController {
         if (userId != nil)
         {
             var params = [ "user_id": userId ]
-            Alamofire.request(.POST, "https://exchangeappreview.azurewebsites.net/Spotlight/delete_request.php", parameters: params)
+            Alamofire.request(.POST, "https://spotlight.azure-mobile.net/api/delete_request", parameters: params).responseJSON(completionHandler: { (Res) in
+                
+                if (Res.result.error != nil)
+                {
+                    print ("Error: \(Res.result)")
+                    
+                }
+                else
+                {
+                    print ("Error: \(Res.result)")
+                }
+                
+            })
         }
     }
     

@@ -15,7 +15,7 @@ import GTToast
 
 class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var url = "https://exchangeappreview.azurewebsites.net/"
+    var url = "https://spotlightrc.azurewebsites.net/"
     var userId = ""
     
     @IBOutlet weak var changePasswordView: UIView!
@@ -47,7 +47,10 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func uploadPhoto(userImage:UIImage)
     {
         
-        let myUrl = NSURL(string: "\(url)spotlight/changeImage.php?userId=\(self.userId)");
+        let myUrl = NSURL(string: "\(url)Services/changeImage.php?userId=\(self.userId)");
+        
+        print ("*Update URL: \(myUrl)")
+        
         
         var al = UIAlertView()
         
@@ -77,6 +80,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             
             if error != nil {
                 print("error=\(error)")
+                al.dismissWithClickedButtonIndex(0, animated: true)
                 return
             }
             
@@ -100,7 +104,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
                 
                 var pp = json!.valueForKey("fileurl") as! String
-                //pp = "https://exchangeappreview.azurewebsites.net/Spotlight/\(pp)"
+                //pp = "https://spotlight.azure-mobile.net/api/\(pp)"
                 
                 let userDefaults = NSUserDefaults.standardUserDefaults()
                 userDefaults.setObject(pp, forKey: "profile_pic")
@@ -491,7 +495,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     @IBOutlet weak var dialogPasswordInner: UIView!
     
-    var urla = "https://exchangeappreview.azurewebsites.net/Spotlight"
+    var urla = "https://spotlight.azure-mobile.net/api"
     
     func updateAzurePassword(u:String, s:String){
         
@@ -687,14 +691,14 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                     
                     if (gen as! String == "M")
                     {
-                        self.img.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                        self.img.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                     }else
                     {
-                        self.img.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                        self.img.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                     }
                 }
                 else{
-                    self.img.imageURL(NSURL(string:"https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                    self.img.imageURL(NSURL(string:"https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                 }
                 
                 
@@ -747,7 +751,7 @@ class AccountVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func makeEntryForVip()
     {
-        var apiCall = "https://exchangeappreview.azurewebsites.net/Spotlight/vip_user.php"
+        var apiCall = "https://spotlight.azure-mobile.net/api/vip_user.php"
         var id  = ""
         
         if let user: AnyObject = NSUserDefaults.standardUserDefaults().objectForKey("id") {

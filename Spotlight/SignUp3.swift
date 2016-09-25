@@ -27,7 +27,7 @@ class SignUp3: UIViewController {
     var stringPassword = ""
     var stringRePassword = ""
     
-    var url = "https://exchangeappreview.azurewebsites.net/"
+    var url = "https://spotlightrc.azurewebsites.net/"
     
     @IBAction func back(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)

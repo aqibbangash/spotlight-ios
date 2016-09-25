@@ -62,7 +62,7 @@ class DialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITex
     var currentConnectedUserName = ""
     var currentConnectedRoomId = ""
     var connectedUserDetails:[AnyObject]!
-    var url = "https://exchangeappreview.azurewebsites.net/Spotlight"
+    var url = "https://spotlight.azure-mobile.net/api"
     var requestId:String!
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var loadingMessage: UILabel!
@@ -137,7 +137,7 @@ class DialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITex
         //print ("Checking blocks for: \(id)")
         
         
-        Alamofire.request(.POST, "https://exchangeappreview.azurewebsites.net/Spotlight/blocked_by_user.php", parameters: ["id":id]).responseJSON { response in
+        Alamofire.request(.POST, "https://spotlight.azure-mobile.net/api/blocked_by_user.php", parameters: ["id":id]).responseJSON { response in
             
             if (response.result.error == nil)
             {
@@ -181,7 +181,7 @@ class DialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITex
         
         //print("reporting ** params:  \(params)")
         
-        var apiCall = "https://exchangeappreview.azurewebsites.net/Spotlight/report_user.php"
+        var apiCall = "https://spotlight.azure-mobile.net/api/report_user.php"
         
         Alamofire.request(.POST, apiCall, parameters: params).responseJSON {
             response in
@@ -2546,7 +2546,7 @@ class DialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITex
         if (userId != nil)
         {
             var params = [ "user_id": userId ]
-            Alamofire.request(.POST, "https://exchangeappreview.azurewebsites.net/Spotlight/delete_request.php", parameters: params).response(completionHandler: { (req, res, data, error
+            Alamofire.request(.POST, "https://spotlight.azure-mobile.net/api/delete_request.php", parameters: params).response(completionHandler: { (req, res, data, error
                 ) in
                 
                 ////print ("* * *0\(res)")
@@ -2955,18 +2955,18 @@ class DialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, UITex
             if (self.thisUserGender == "M")
             {
                 
-                self.imageInfo.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
-                self.proInfoImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                self.imageInfo.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
+                self.proInfoImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                 
-                self.hisimage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png"
+                self.hisimage = "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png"
                 
             }else
             {
                 
-                self.imageInfo.imageURL(NSURL(string: "hhttps://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
-                self.proInfoImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                self.imageInfo.imageURL(NSURL(string: "hhttps://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
+                self.proInfoImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                 
-                self.hisimage = "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png"
+                self.hisimage = "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png"
                 
             }
             

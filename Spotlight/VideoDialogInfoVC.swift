@@ -26,7 +26,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
     var currentConnectedUserName = ""
     var currentConnectedRoomId = ""
     var connectedUserDetails:[AnyObject]!
-    var url = "https://exchangeappreview.azurewebsites.net/Spotlight"
+    var url = "https://spotlight.azure-mobile.net/api"
     var requestId:String!
     var blocks:String  = ""
     
@@ -142,7 +142,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         //print ("IN HEREE")
         newloadingView.hidden = true
         
-        Alamofire.request(.POST, "https://exchangeappreview.azurewebsites.net/Spotlight/blocked_by_user.php", parameters: ["id":id]).responseJSON { response in
+        Alamofire.request(.POST, "https://spotlight.azure-mobile.net/api/blocked_by_user.php", parameters: ["id":id]).responseJSON { response in
             
             if (response.result.error == nil)
             {
@@ -213,7 +213,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         
         //print("params:  \(params)")
         
-        var apiCall = "https://exchangeappreview.azurewebsites.net/Spotlight/report_user.php"
+        var apiCall = "https://spotlight.azure-mobile.net/api/report_user.php"
         
         Alamofire.request(.POST, apiCall).responseJSON {
             response in
@@ -1457,15 +1457,15 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             if (self.thisUserGender == "M")
             {
                 
-                self.imageInfo.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
-                self.proInfoImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-male.png")!)
+                self.imageInfo.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
+                self.proInfoImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-male.png")!)
                 
                 
             }else
             {
                 
-                self.imageInfo.imageURL(NSURL(string: "hhttps://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
-                self.proInfoImage.imageURL(NSURL(string: "https://exchangeappreview.azurewebsites.net/Spotlight/profilePictures/default-female.png")!)
+                self.imageInfo.imageURL(NSURL(string: "hhttps://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
+                self.proInfoImage.imageURL(NSURL(string: "https://spotlight.azure-mobile.net/api/profilePictures/default-female.png")!)
                 
             }
             
@@ -2630,7 +2630,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
             {
                 
                 //print ("*Error: \(error?.localizedDescription)")
-                self.personName.text = "Mayday situation. Retreat ASAP. Over."
+                self.personName.text = "Error Connecting. Check internet"
                 self.connectionTime.text = ""
                 //print ("NOT Connected!")
                 //self.connectionStatus.text = "NOT Connected"
@@ -2657,7 +2657,7 @@ class VideoDialogInfoVC: UIViewController, QBChatDelegate, QBRTCClientDelegate, 
         
         //print("params:  \(params)")
         
-        var apiCall = "https://exchangeappreview.azurewebsites.net/Spotlight/point_plus_plus.php"
+        var apiCall = "https://spotlight.azure-mobile.net/api/point_plus_plus.php"
         
         Alamofire.request(.POST, apiCall).responseJSON {
             response in
